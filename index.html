@@ -1,48 +1,294 @@
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="robots" content="noindex, nofollow"> <meta name="googlebot" content="noindex, nofollow"> <title>SST Microwelding — Documentation</title> <style> * { box-sizing: border-box; } body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f4f5f7; color: #202124; } header { background: #111827; color: white; text-align: center; padding: 42px 20px; } header h1 { margin: 0 0 10px; font-size: 32px; font-weight: 600; } header p { margin: 0; color: #cbd5e1; font-size: 16px; } main { max-width: 850px; margin: 45px auto; padding: 0 20px; } .intro { text-align: center; margin-bottom: 35px; } .intro h2 { margin: 0 0 10px; font-size: 25px; } .intro p { margin: 0; color: #6b7280; } .product { background: white; border-radius: 14px; padding: 28px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); } .product h3 { margin: 0 0 20px; font-size: 23px; } .languages { display: flex; flex-wrap: wrap; gap: 10px; } .language { display: inline-block; background: #eef0f3; color: #202124; padding: 13px 17px; border-radius: 9px; text-decoration: none; font-size: 15px; font-weight: 600; transition: background 0.2s, transform 0.2s; } .language:hover { background: #dfe3e8; transform: translateY(-1px); } footer { text-align: center; color: #8a8f98; font-size: 13px; padding: 15px 20px 35px; } @media (max-width: 600px) { header { padding: 32px 15px; } header h1 { font-size: 27px; } main { margin: 30px auto; } .product { padding: 22px; } .languages { flex-direction: column; } .language { text-align: center; } } </style> </head> <body> <header> <h1>SST Microwelding</h1> <p>Documentation technique</p> </header> <main> <div class="intro"> <h2>Notices et documents</h2> <p>Sélectionnez votre produit et la langue souhaitée.</p> </div> <!-- LASE ONE --> <section class="product"> <h3>Lase One</h3>
-<div class="languages">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <a class="language" href="#">
-    🇫🇷 Français
-  </a>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
 
-  <a class="language" href="#">
-    🇬🇧 English
-  </a>
+  <title>SST Microwelding — Documentation</title>
 
-  <a class="language" href="#">
-    🇩🇪 Deutsch
-  </a>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  <a class="language" href="#">
-    🇮🇹 Italiano
-  </a>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f5f7;
+      color: #202124;
+    }
 
-  <a class="language" href="#">
-    🇨🇿 Čeština
-  </a>
+    header {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 42px 20px;
+    }
 
-  <a class="language" href="#">
-    🇪🇸 Español
-  </a>
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      font-weight: 600;
+    }
 
-</div>
+    header p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
 
-</section> <!-- WS --> <section class="product"> <h3>WS</h3>
-<div class="languages">
+    main {
+      max-width: 850px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
 
-  <a class="language" href="#">
-    🇫🇷🇬🇧 Notice Français / English
-  </a>
+    .intro {
+      text-align: center;
+      margin-bottom: 35px;
+    }
 
-</div>
+    .intro h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
 
-</section> <!-- CART --> <section class="product"> <h3>CART</h3>
-<div class="languages">
+    .intro p {
+      margin: 0;
+      color: #6b7280;
+    }
 
-  <a class="language" href="#">
-    🇫🇷🇬🇧 Notice Français / English
-  </a>
+    .product {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
 
-</div>
+    .product h3 {
+      margin: 0 0 20px;
+      font-size: 23px;
+    }
 
-</section> </main> <footer> © SST Microwelding — Documentation </footer> </body> </html>
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .language {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #eef0f3;
+      color: #202124;
+      padding: 12px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .language:hover {
+      background: #dfe3e8;
+      transform: translateY(-1px);
+    }
+
+    .flag {
+      width: 25px;
+      height: 17px;
+      display: block;
+      border-radius: 2px;
+      box-shadow: 0 0 2px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #8a8f98;
+      font-size: 13px;
+      padding: 15px 20px 35px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 32px 15px;
+      }
+
+      header h1 {
+        font-size: 27px;
+      }
+
+      main {
+        margin: 30px auto;
+      }
+
+      .product {
+        padding: 22px;
+      }
+
+      .languages {
+        flex-direction: column;
+      }
+
+      .language {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SST Microwelding</h1>
+  <p>Documentation technique</p>
+</header>
+
+<main>
+
+  <div class="intro">
+    <h2>Notices et documents</h2>
+    <p>Sélectionnez votre produit et la langue souhaitée.</p>
+  </div>
+
+
+  <!-- LASE ONE -->
+  <section class="product">
+    <h3>Lase One</h3>
+
+    <div class="languages">
+
+      <!-- France -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="10" height="20" fill="#0055A4"/>
+          <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+          <rect x="20" width="10" height="20" fill="#EF4135"/>
+        </svg>
+        Français
+      </a>
+
+      <!-- Royaume-Uni -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 60 40">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#FFFFFF" stroke-width="8"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#FFFFFF" stroke-width="13"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        English
+      </a>
+
+      <!-- Allemagne -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="30" height="6.67" fill="#000000"/>
+          <rect y="6.67" width="30" height="6.66" fill="#DD0000"/>
+          <rect y="13.33" width="30" height="6.67" fill="#FFCE00"/>
+        </svg>
+        Deutsch
+      </a>
+
+      <!-- Italie -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="10" height="20" fill="#009246"/>
+          <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+          <rect x="20" width="10" height="20" fill="#CE2B37"/>
+        </svg>
+        Italiano
+      </a>
+
+      <!-- République tchèque -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="30" height="10" fill="#FFFFFF"/>
+          <rect y="10" width="30" height="10" fill="#D7141A"/>
+          <polygon points="0,0 15,10 0,20" fill="#11457E"/>
+        </svg>
+        Čeština
+      </a>
+
+      <!-- Espagne -->
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="30" height="20" fill="#AA151B"/>
+          <rect y="5" width="30" height="10" fill="#F1BF00"/>
+        </svg>
+        Español
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- WS -->
+  <section class="product">
+    <h3>WS</h3>
+
+    <div class="languages">
+
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="10" height="20" fill="#0055A4"/>
+          <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+          <rect x="20" width="10" height="20" fill="#EF4135"/>
+        </svg>
+
+        <svg class="flag" viewBox="0 0 60 40">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#FFFFFF" stroke-width="8"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#FFFFFF" stroke-width="13"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+
+        Français / English
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- CART -->
+  <section class="product">
+    <h3>CART</h3>
+
+    <div class="languages">
+
+      <a class="language" href="#">
+        <svg class="flag" viewBox="0 0 30 20">
+          <rect width="10" height="20" fill="#0055A4"/>
+          <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+          <rect x="20" width="10" height="20" fill="#EF4135"/>
+        </svg>
+
+        <svg class="flag" viewBox="0 0 60 40">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#FFFFFF" stroke-width="8"/>
+          <path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#FFFFFF" stroke-width="13"/>
+          <path d="M30 0 V40 M0 20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+
+        Français / English
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © SST Microwelding — Documentation
+</footer>
+
+</body>
+</html>
