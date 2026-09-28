@@ -209,66 +209,78 @@
     /* Royaume-Uni */
 
     .flag-en {
-      background-color: #012169;
+  position: relative;
+  overflow: hidden;
+  background: #012169;
+}
 
-      background-image:
-        linear-gradient(
-          33deg,
-          transparent 43%,
-          #ffffff 43%,
-          #ffffff 57%,
-          transparent 57%
-        ),
-        linear-gradient(
-          -33deg,
-          transparent 43%,
-          #ffffff 43%,
-          #ffffff 57%,
-          transparent 57%
-        ),
-        linear-gradient(
-          33deg,
-          transparent 47%,
-          #c8102e 47%,
-          #c8102e 53%,
-          transparent 53%
-        ),
-        linear-gradient(
-          -33deg,
-          transparent 47%,
-          #c8102e 47%,
-          #c8102e 53%,
-          transparent 53%
-        ),
-        linear-gradient(
-          to right,
-          transparent 42%,
-          #ffffff 42%,
-          #ffffff 58%,
-          transparent 58%
-        ),
-        linear-gradient(
-          to bottom,
-          transparent 38%,
-          #ffffff 38%,
-          #ffffff 62%,
-          transparent 62%
-        ),
-        linear-gradient(
-          to right,
-          transparent 46%,
-          #c8102e 46%,
-          #c8102e 54%,
-          transparent 54%
-        ),
-        linear-gradient(
-          to bottom,
-          transparent 42%,
-          #c8102e 42%,
-          #c8102e 58%,
-          transparent 58%
-        );
-    }
+/* Croix diagonales blanches */
+.flag-en::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      32deg,
+      transparent 42%,
+      #ffffff 42%,
+      #ffffff 48%,
+      transparent 48%,
+      transparent 52%,
+      #ffffff 52%,
+      #ffffff 58%,
+      transparent 58%
+    ),
+    linear-gradient(
+      -32deg,
+      transparent 42%,
+      #ffffff 42%,
+      #ffffff 48%,
+      transparent 48%,
+      transparent 52%,
+      #ffffff 52%,
+      #ffffff 58%,
+      transparent 58%
+    );
+}
+
+/* Croix rouge centrale + diagonales rouges */
+.flag-en::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent 40%,
+      #ffffff 40%,
+      #ffffff 60%,
+      transparent 60%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 35%,
+      #ffffff 35%,
+      #ffffff 65%,
+      transparent 65%
+    ),
+    linear-gradient(
+      to right,
+      transparent 46%,
+      #c8102e 46%,
+      #c8102e 54%,
+      transparent 54%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 42%,
+      #c8102e 42%,
+      #c8102e 58%,
+      transparent 58%
+    );
+}
 
     /* Italie */
 
@@ -945,14 +957,6 @@
   <section class="hero">
 
     <div class="hero-container">
-
-      <div
-        class="hero-small-title"
-        data-fr="SST Microwelding"
-        data-en="SST Microwelding"
-      >
-        SST Microwelding
-      </div>
 
 
       <h1
