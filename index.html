@@ -171,129 +171,12 @@
 
 
     /* =========================================================
-       DRAPEAUX
+       DRAPEAUX DU HEADER
     ========================================================= */
 
-    .flag {
-      display: inline-block;
-
-      width: 22px;
-      height: 15px;
-
-      margin-right: 5px;
-
-      vertical-align: -2px;
-
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      border-radius: 1px;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
-    }
-
-    /* France */
-
-    .flag-fr {
-      background-image: linear-gradient(
-        to right,
-        #0055a4 0%,
-        #0055a4 33.33%,
-        #ffffff 33.33%,
-        #ffffff 66.66%,
-        #ef4135 66.66%,
-        #ef4135 100%
-      );
-    }
-
-    /* Royaume-Uni */
-
-    .flag-en {
-  position: relative;
-  overflow: hidden;
-  background: #012169;
-}
-
-/* Croix diagonales blanches */
-.flag-en::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      32deg,
-      transparent 42%,
-      #ffffff 42%,
-      #ffffff 48%,
-      transparent 48%,
-      transparent 52%,
-      #ffffff 52%,
-      #ffffff 58%,
-      transparent 58%
-    ),
-    linear-gradient(
-      -32deg,
-      transparent 42%,
-      #ffffff 42%,
-      #ffffff 48%,
-      transparent 48%,
-      transparent 52%,
-      #ffffff 52%,
-      #ffffff 58%,
-      transparent 58%
-    );
-}
-
-/* Croix rouge centrale + diagonales rouges */
-.flag-en::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent 40%,
-      #ffffff 40%,
-      #ffffff 60%,
-      transparent 60%
-    ),
-    linear-gradient(
-      to bottom,
-      transparent 35%,
-      #ffffff 35%,
-      #ffffff 65%,
-      transparent 65%
-    ),
-    linear-gradient(
-      to right,
-      transparent 46%,
-      #c8102e 46%,
-      #c8102e 54%,
-      transparent 54%
-    ),
-    linear-gradient(
-      to bottom,
-      transparent 42%,
-      #c8102e 42%,
-      #c8102e 58%,
-      transparent 58%
-    );
-}
-
-    /* Italie */
-
-    .flag-it {
-      background-image: linear-gradient(
-        to right,
-        #009246 0%,
-        #009246 33.33%,
-        #ffffff 33.33%,
-        #ffffff 66.66%,
-        #ce2b37 66.66%,
-        #ce2b37 100%
-      );
+    .language-button .flag {
+      font-size: 17px;
+      margin-right: 4px;
     }
 
 
@@ -312,20 +195,6 @@
     .hero-container {
       max-width: 1180px;
       margin: 0 auto;
-    }
-
-    .hero-small-title {
-      font-family: "Eurostile SST", Arial, sans-serif;
-
-      color: #e30613;
-
-      font-size: 14px;
-      font-weight: 400;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-
-      margin-bottom: 20px;
     }
 
     .hero h1 {
@@ -569,7 +438,7 @@
 
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
     .document-subtitle {
@@ -743,8 +612,6 @@
 
     @media (max-width: 600px) {
 
-      /* Header */
-
       .top-header {
         border-bottom: none;
       }
@@ -758,7 +625,7 @@
         max-width: 210px;
       }
 
-      /* Masquer le menu principal sur téléphone */
+      /* Masquer la navigation sur téléphone */
 
       .navigation {
         width: 100%;
@@ -769,7 +636,7 @@
         display: none;
       }
 
-      /* Garder uniquement FR / EN */
+      /* Garder FR / EN */
 
       .language-switch {
         display: flex;
@@ -780,15 +647,15 @@
         border-left: none;
       }
 
-      /* Hero */
+      .language-button .flag {
+        font-size: 18px;
+      }
+
+
+      /* HERO */
 
       .hero {
         padding: 60px 20px 65px;
-      }
-
-      .hero-small-title {
-        font-size: 12px;
-        margin-bottom: 16px;
       }
 
       .hero h1 {
@@ -801,7 +668,8 @@
         line-height: 1.65;
       }
 
-      /* Intro */
+
+      /* INTRO */
 
       .intro {
         padding: 65px 20px 35px;
@@ -812,14 +680,12 @@
         line-height: 1.15;
       }
 
-      /* Suppression de la petite ligne
-         directement sous Documentation produits */
-
       .intro .section-line {
         display: none;
       }
 
-      /* Products */
+
+      /* PRODUCTS */
 
       .products {
         padding: 25px 20px 70px;
@@ -854,7 +720,8 @@
         height: 34px;
       }
 
-      /* Footer */
+
+      /* FOOTER */
 
       footer {
         padding: 50px 20px 25px;
@@ -927,7 +794,7 @@
             id="fr-button"
             onclick="changeLanguage('fr')"
           >
-            <span class="flag flag-fr" aria-hidden="true"></span>
+            <span class="flag">🇫🇷</span>
             FR
           </button>
 
@@ -936,7 +803,7 @@
             id="en-button"
             onclick="changeLanguage('en')"
           >
-            <span class="flag flag-en" aria-hidden="true"></span>
+            <span class="flag">🇬🇧</span>
             EN
           </button>
 
@@ -957,7 +824,6 @@
   <section class="hero">
 
     <div class="hero-container">
-
 
       <h1
         data-fr="Documentation<br><span>technique</span>"
@@ -1065,6 +931,8 @@
         </div>
 
 
+        <!-- LASE ONE FR -->
+
         <a
           href="pdf/Lase-One-fr.pdf"
           target="_blank"
@@ -1080,8 +948,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-fr" aria-hidden="true"></span>
-                Français
+                🇫🇷 Français
               </div>
 
               <div
@@ -1103,6 +970,8 @@
         </a>
 
 
+        <!-- LASE ONE EN -->
+
         <a
           href="pdf/Lase-One-en.pdf"
           target="_blank"
@@ -1118,8 +987,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-en" aria-hidden="true"></span>
-                English
+                🇬🇧 English
               </div>
 
               <div
@@ -1141,6 +1009,8 @@
         </a>
 
 
+        <!-- LASE ONE IT -->
+
         <a
           href="pdf/Lase-One-it.pdf"
           target="_blank"
@@ -1156,8 +1026,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-it" aria-hidden="true"></span>
-                Italiano
+                🇮🇹 Italiano
               </div>
 
               <div
@@ -1227,6 +1096,8 @@
         </div>
 
 
+        <!-- WS FR / EN -->
+
         <a
           href="pdf/WS-fr-en.pdf"
           target="_blank"
@@ -1242,9 +1113,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-fr" aria-hidden="true"></span>
-                <span class="flag flag-en" aria-hidden="true"></span>
-                Français / English
+                🇫🇷 🇬🇧 Français / English
               </div>
 
               <div
@@ -1266,6 +1135,8 @@
         </a>
 
 
+        <!-- WS TECHNIQUE FR -->
+
         <a
           href="pdf/WS-technique-fr.pdf"
           target="_blank"
@@ -1281,8 +1152,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-fr" aria-hidden="true"></span>
-                Technique
+                🇫🇷 Technique
               </div>
 
               <div
@@ -1304,6 +1174,8 @@
         </a>
 
 
+        <!-- WS TECHNIQUE EN -->
+
         <a
           href="pdf/WS-technocal-en.pdf"
           target="_blank"
@@ -1319,8 +1191,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-en" aria-hidden="true"></span>
-                Technical
+                🇬🇧 Technical
               </div>
 
               <div
@@ -1341,6 +1212,8 @@
 
         </a>
 
+
+        <!-- RESET WS -->
 
         <a
           href="pdf/Reset%20WS.pdf"
@@ -1427,6 +1300,8 @@
         </div>
 
 
+        <!-- CART FR / EN -->
+
         <a
           href="pdf/Cart-fr-en.pdf"
           target="_blank"
@@ -1442,9 +1317,7 @@
             <div>
 
               <div class="document-name">
-                <span class="flag flag-fr" aria-hidden="true"></span>
-                <span class="flag flag-en" aria-hidden="true"></span>
-                Français / English
+                🇫🇷 🇬🇧 Français / English
               </div>
 
               <div
@@ -1465,6 +1338,8 @@
 
         </a>
 
+
+        <!-- CART DOCUMENTATION -->
 
         <a
           href="pdf/CART-DB.pdf"
