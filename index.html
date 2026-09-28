@@ -186,70 +186,104 @@ a {
    LANGUAGE CONTENT
 ========================= */
 
+/* Tout est caché par défaut */
 .lang-fr,
 .lang-en,
 .lang-it,
 .lang-es,
 .lang-de {
-    display: none;
+    display: none !important;
 }
 
-body[data-language="fr"] .lang-fr {
-    display: flex;
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation .lang-fr,
+.navigation .lang-en,
+.navigation .lang-it,
+.navigation .lang-es,
+.navigation .lang-de {
+    display: none !important;
 }
 
-body[data-language="en"] .lang-en {
-    display: flex;
+body[data-language="fr"] .navigation .lang-fr,
+body[data-language="en"] .navigation .lang-en,
+body[data-language="it"] .navigation .lang-it,
+body[data-language="es"] .navigation .lang-es,
+body[data-language="de"] .navigation .lang-de {
+    display: inline !important;
 }
 
-body[data-language="it"] .lang-it {
-    display: flex;
+/* =========================
+   HERO
+========================= */
+
+.hero h1.lang-fr,
+.hero h1.lang-en,
+.hero h1.lang-it,
+.hero h1.lang-es,
+.hero h1.lang-de {
+    display: none !important;
 }
 
-body[data-language="es"] .lang-es {
-    display: flex;
+body[data-language="fr"] .hero h1.lang-fr,
+body[data-language="en"] .hero h1.lang-en,
+body[data-language="it"] .hero h1.lang-it,
+body[data-language="es"] .hero h1.lang-es,
+body[data-language="de"] .hero h1.lang-de {
+    display: block !important;
 }
 
-body[data-language="de"] .lang-de {
-    display: flex;
-}
-
-p.lang-fr,
-p.lang-en,
-p.lang-it,
-p.lang-es,
-p.lang-de,
-div.lang-fr,
-div.lang-en,
-div.lang-it,
-div.lang-es,
-div.lang-de {
-    display: none;
-}
+/* =========================
+   TEXTES
+========================= */
 
 body[data-language="fr"] p.lang-fr,
-body[data-language="fr"] div.lang-fr {
-    display: block;
-}
+body[data-language="fr"] div.lang-fr,
+body[data-language="fr"] h2.lang-fr,
+body[data-language="fr"] .section-label.lang-fr,
 
 body[data-language="en"] p.lang-en,
-body[data-language="en"] div.lang-en {
-    display: block;
-}
+body[data-language="en"] div.lang-en,
+body[data-language="en"] h2.lang-en,
+body[data-language="en"] .section-label.lang-en,
 
 body[data-language="it"] p.lang-it,
-body[data-language="it"] div.lang-it {
-    display: block;
-}
+body[data-language="it"] div.lang-it,
+body[data-language="it"] h2.lang-it,
+body[data-language="it"] .section-label.lang-it,
 
 body[data-language="es"] p.lang-es,
-body[data-language="es"] div.lang-es {
-    display: block;
-}
+body[data-language="es"] div.lang-es,
+body[data-language="es"] h2.lang-es,
+body[data-language="es"] .section-label.lang-es,
 
 body[data-language="de"] p.lang-de,
-body[data-language="de"] div.lang-de {
-    display: block;
+body[data-language="de"] div.lang-de,
+body[data-language="de"] h2.lang-de,
+body[data-language="de"] .section-label.lang-de {
+    display: block !important;
+}
+
+/* =========================
+   DOCUMENTS PDF
+========================= */
+
+.document.lang-fr,
+.document.lang-en,
+.document.lang-it,
+.document.lang-es,
+.document.lang-de {
+    display: none !important;
+}
+
+body[data-language="fr"] .document.lang-fr,
+body[data-language="en"] .document.lang-en,
+body[data-language="it"] .document.lang-it,
+body[data-language="es"] .document.lang-es,
+body[data-language="de"] .document.lang-de {
+    display: flex !important;
 }
 
 /* =========================
@@ -345,19 +379,10 @@ body[data-language="de"] div.lang-de {
 ========================= */
 
 .document {
-    display: none;
     align-items: center;
     min-height: 60px;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
-}
-
-body[data-language="fr"] .document.lang-fr,
-body[data-language="en"] .document.lang-en,
-body[data-language="it"] .document.lang-it,
-body[data-language="es"] .document.lang-es,
-body[data-language="de"] .document.lang-de {
-    display: flex;
 }
 
 .document:last-child {
@@ -659,23 +684,23 @@ footer {
 
             <div class="language-switch">
 
-                <button id="fr-button" onclick="changeLanguage('fr')">
+                <button id="fr-button" type="button" onclick="changeLanguage('fr')">
                     <span class="flag">🇫🇷</span> FR
                 </button>
 
-                <button id="en-button" onclick="changeLanguage('en')">
+                <button id="en-button" type="button" onclick="changeLanguage('en')">
                     <span class="flag">🇬🇧</span> EN
                 </button>
 
-                <button id="it-button" onclick="changeLanguage('it')">
+                <button id="it-button" type="button" onclick="changeLanguage('it')">
                     <span class="flag">🇮🇹</span> IT
                 </button>
 
-                <button id="es-button" onclick="changeLanguage('es')">
+                <button id="es-button" type="button" onclick="changeLanguage('es')">
                     <span class="flag">🇪🇸</span> ES
                 </button>
 
-                <button id="de-button" onclick="changeLanguage('de')">
+                <button id="de-button" type="button" onclick="changeLanguage('de')">
                     <span class="flag">🇩🇪</span> DE
                 </button>
 
@@ -920,13 +945,13 @@ footer {
             </a>
 
 
-            <!-- ESPAGNOL -->
+            <!-- ES -->
             <a class="document lang-es"
                href="pdf/Lase-One-en.pdf"
                target="_blank">
-            
+
                 <div class="document-icon">PDF</div>
-            
+
                 <div class="document-content">
                     <div class="document-title">
                         <span class="document-flags">🇬🇧</span>
@@ -936,19 +961,19 @@ footer {
                         English
                     </div>
                 </div>
-            
+
                 <div class="document-arrow">→</div>
-            
+
             </a>
-            
-            
-            <!-- ALLEMAND -->
+
+
+            <!-- DE -->
             <a class="document lang-de"
                href="pdf/Lase-One-en.pdf"
                target="_blank">
-            
+
                 <div class="document-icon">PDF</div>
-            
+
                 <div class="document-content">
                     <div class="document-title">
                         <span class="document-flags">🇬🇧</span>
@@ -958,9 +983,9 @@ footer {
                         English
                     </div>
                 </div>
-            
+
                 <div class="document-arrow">→</div>
-            
+
             </a>
 
         </div>
@@ -1010,7 +1035,8 @@ footer {
 
         <div class="documents">
 
-            <!-- WS FR/EN -->
+            <!-- WS BILINGUE FR/EN -->
+
             <a class="document lang-fr"
                href="pdf/WS-fr-en.pdf"
                target="_blank">
@@ -1030,6 +1056,7 @@ footer {
                 <div class="document-arrow">→</div>
 
             </a>
+
 
             <a class="document lang-en"
                href="pdf/WS-fr-en.pdf"
@@ -1051,6 +1078,7 @@ footer {
 
             </a>
 
+
             <a class="document lang-it"
                href="pdf/WS-fr-en.pdf"
                target="_blank">
@@ -1071,6 +1099,7 @@ footer {
 
             </a>
 
+
             <a class="document lang-es"
                href="pdf/WS-fr-en.pdf"
                target="_blank">
@@ -1090,6 +1119,7 @@ footer {
                 <div class="document-arrow">→</div>
 
             </a>
+
 
             <a class="document lang-de"
                href="pdf/WS-fr-en.pdf"
@@ -1113,6 +1143,7 @@ footer {
 
 
             <!-- WS TECHNIQUE FR -->
+
             <a class="document lang-fr"
                href="pdf/WS-technique-fr.pdf"
                target="_blank">
@@ -1135,6 +1166,7 @@ footer {
 
 
             <!-- WS TECHNIQUE EN -->
+
             <a class="document lang-en"
                href="pdf/WS-technocal-en.pdf"
                target="_blank">
@@ -1157,6 +1189,7 @@ footer {
 
 
             <!-- WS TECHNIQUE IT : EN -->
+
             <a class="document lang-it"
                href="pdf/WS-technocal-en.pdf"
                target="_blank">
@@ -1178,20 +1211,21 @@ footer {
             </a>
 
 
-            <!-- WS TECHNIQUE ES : FR -->
+            <!-- WS TECHNIQUE ES : EN -->
+
             <a class="document lang-es"
-               href="pdf/WS-technique-fr.pdf"
+               href="pdf/WS-technocal-en.pdf"
                target="_blank">
 
                 <div class="document-icon">PDF</div>
 
                 <div class="document-content">
                     <div class="document-title">
-                        <span class="document-flags">🇫🇷</span>
+                        <span class="document-flags">🇬🇧</span>
                         Documentación técnica
                     </div>
                     <div class="document-subtitle">
-                        Documento en francés
+                        English
                     </div>
                 </div>
 
@@ -1200,20 +1234,21 @@ footer {
             </a>
 
 
-            <!-- WS TECHNIQUE DE : FR -->
+            <!-- WS TECHNIQUE DE : EN -->
+
             <a class="document lang-de"
-               href="pdf/WS-technique-fr.pdf"
+               href="pdf/WS-technocal-en.pdf"
                target="_blank">
 
                 <div class="document-icon">PDF</div>
 
                 <div class="document-content">
                     <div class="document-title">
-                        <span class="document-flags">🇫🇷</span>
+                        <span class="document-flags">🇬🇧</span>
                         Technische Dokumentation
                     </div>
                     <div class="document-subtitle">
-                        Dokument auf Französisch
+                        English
                     </div>
                 </div>
 
@@ -1244,6 +1279,7 @@ footer {
 
             </a>
 
+
             <a class="document lang-en"
                href="pdf/Reset%20WS.pdf"
                target="_blank">
@@ -1263,6 +1299,7 @@ footer {
                 <div class="document-arrow">→</div>
 
             </a>
+
 
             <a class="document lang-it"
                href="pdf/Reset%20WS.pdf"
@@ -1284,6 +1321,7 @@ footer {
 
             </a>
 
+
             <a class="document lang-es"
                href="pdf/Reset%20WS.pdf"
                target="_blank">
@@ -1303,6 +1341,7 @@ footer {
                 <div class="document-arrow">→</div>
 
             </a>
+
 
             <a class="document lang-de"
                href="pdf/Reset%20WS.pdf"
@@ -1732,60 +1771,66 @@ footer {
 
 <script>
 
+/* =========================
+   CHANGEMENT DE LANGUE
+========================= */
+
 function changeLanguage(language) {
 
+    const languages = ["fr", "en", "it", "es", "de"];
+
+    if (!languages.includes(language)) {
+        language = "fr";
+    }
+
     document.body.setAttribute("data-language", language);
+    document.documentElement.setAttribute("lang", language);
 
-    document.documentElement.lang = language;
+    const buttons = {
+        fr: document.getElementById("fr-button"),
+        en: document.getElementById("en-button"),
+        it: document.getElementById("it-button"),
+        es: document.getElementById("es-button"),
+        de: document.getElementById("de-button")
+    };
 
-    document.getElementById("fr-button").classList.toggle(
-        "active",
-        language === "fr"
-    );
+    Object.keys(buttons).forEach(function(code) {
 
-    document.getElementById("en-button").classList.toggle(
-        "active",
-        language === "en"
-    );
+        if (buttons[code]) {
+            buttons[code].classList.toggle(
+                "active",
+                code === language
+            );
+        }
 
-    document.getElementById("it-button").classList.toggle(
-        "active",
-        language === "it"
-    );
+    });
 
-    document.getElementById("es-button").classList.toggle(
-        "active",
-        language === "es"
-    );
-
-    document.getElementById("de-button").classList.toggle(
-        "active",
-        language === "de"
-    );
-
-    localStorage.setItem("sst-language", language);
+    try {
+        localStorage.setItem("sst-language", language);
+    } catch (error) {
+        console.log("LocalStorage indisponible");
+    }
 }
 
 
-const savedLanguage =
-    localStorage.getItem("sst-language") || "fr";
+/* =========================
+   LANGUE AU CHARGEMENT
+========================= */
 
+document.addEventListener("DOMContentLoaded", function() {
 
-if (
-    savedLanguage === "fr" ||
-    savedLanguage === "en" ||
-    savedLanguage === "it" ||
-    savedLanguage === "es" ||
-    savedLanguage === "de"
-) {
+    let savedLanguage = "fr";
+
+    try {
+        savedLanguage =
+            localStorage.getItem("sst-language") || "fr";
+    } catch (error) {
+        savedLanguage = "fr";
+    }
 
     changeLanguage(savedLanguage);
 
-} else {
-
-    changeLanguage("fr");
-
-}
+});
 
 </script>
 
