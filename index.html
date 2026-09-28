@@ -264,11 +264,8 @@
       max-width: 1180px;
       margin: 0 auto;
 
-      padding: 30px 30px 100px;
+      padding: 30px 30px 90px;
     }
-
-
-    /* PRODUCT */
 
     .product {
       display: grid;
@@ -432,59 +429,72 @@
 
 
     /* =========================================================
-       BOTTOM STRIP
+       BRAND FOOTER INTRO
     ========================================================= */
 
-    .bottom-strip {
-      background: #e30613;
-
-      color: #fff;
-
-      padding: 58px 30px;
-    }
-
-    .bottom-strip-container {
+    .brand-footer {
       max-width: 1180px;
       margin: 0 auto;
+
+      padding: 55px 30px 65px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 40px;
+      gap: 50px;
+
+      border-top: 1px solid #eeeeee;
     }
 
-    .bottom-strip h2 {
-      font-size: 30px;
+    .brand-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-footer-line {
+      width: 4px;
+      height: 55px;
+
+      background: #e30613;
+    }
+
+    .brand-footer h2 {
+      font-size: 27px;
 
       font-weight: 800;
 
+      letter-spacing: 0.5px;
+
       text-transform: uppercase;
 
-      letter-spacing: -0.3px;
+      color: #222;
     }
 
-    .bottom-strip p {
-      max-width: 550px;
+    .brand-footer p {
+      max-width: 480px;
 
-      font-size: 15px;
+      font-size: 14px;
 
       line-height: 1.7;
 
-      opacity: 0.92;
+      color: #777;
     }
 
 
     /* =========================================================
-       FOOTER
+       LIGHT FOOTER
     ========================================================= */
 
     footer {
-      background: #222;
+      background: #f1f1f1;
 
-      color: #aaa;
+      border-top: 1px solid #e4e4e4;
 
-      padding: 55px 30px 35px;
+      padding: 55px 30px 25px;
+
+      color: #555;
     }
 
     .footer-container {
@@ -493,18 +503,23 @@
 
       display: grid;
 
-      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-template-columns: 1.3fr 1fr 1fr;
 
       gap: 60px;
     }
 
     .footer-logo img {
-      max-width: 205px;
-      max-height: 65px;
+      display: block;
+
+      max-width: 210px;
+      max-height: 70px;
+
+      width: auto;
+      height: auto;
     }
 
     .footer-title {
-      color: #fff;
+      color: #222;
 
       font-size: 13px;
       font-weight: 700;
@@ -516,10 +531,35 @@
       margin-bottom: 16px;
     }
 
+    .footer-title::after {
+      content: "";
+
+      display: block;
+
+      width: 30px;
+      height: 2px;
+
+      background: #e30613;
+
+      margin-top: 8px;
+    }
+
     .footer-text {
       font-size: 13px;
 
-      line-height: 1.8;
+      line-height: 1.9;
+
+      color: #666;
+    }
+
+    .footer-text a {
+      color: #555;
+
+      transition: color 0.2s ease;
+    }
+
+    .footer-text a:hover {
+      color: #e30613;
     }
 
     .footer-bottom {
@@ -529,11 +569,11 @@
 
       padding-top: 20px;
 
-      border-top: 1px solid #3a3a3a;
+      border-top: 1px solid #d9d9d9;
 
       font-size: 11px;
 
-      color: #777;
+      color: #999;
     }
 
 
@@ -551,7 +591,6 @@
       .navigation {
         flex-wrap: wrap;
         justify-content: center;
-
         gap: 20px;
       }
 
@@ -580,7 +619,7 @@
         padding: 30px;
       }
 
-      .bottom-strip-container {
+      .brand-footer {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -630,7 +669,7 @@
       }
 
       .products {
-        padding: 25px 20px 70px;
+        padding: 25px 20px 65px;
       }
 
       .product-info {
@@ -649,16 +688,16 @@
         font-size: 13px;
       }
 
-      .bottom-strip {
-        padding: 45px 20px;
+      .brand-footer {
+        padding: 45px 20px 50px;
       }
 
-      .bottom-strip h2 {
-        font-size: 25px;
+      .brand-footer h2 {
+        font-size: 23px;
       }
 
       footer {
-        padding: 45px 20px 30px;
+        padding: 45px 20px 25px;
       }
 
       .footer-container {
@@ -684,21 +723,31 @@
     <div class="header-container">
 
       <a href="#" class="logo-link">
+
         <img
           src="logo-sst.png"
           alt="SST Microwelding"
           class="logo"
         >
+
       </a>
 
 
       <nav class="navigation">
 
-        <a href="#documentation" data-fr="Documentation" data-en="Documentation">
+        <a
+          href="#documentation"
+          data-fr="Documentation"
+          data-en="Documentation"
+        >
           Documentation
         </a>
 
-        <a href="#lase-one" data-fr="Lase One" data-en="Lase One">
+        <a
+          href="#lase-one"
+          data-fr="Lase One"
+          data-en="Lase One"
+        >
           Lase One
         </a>
 
@@ -821,7 +870,6 @@
   <main class="products">
 
 
-
     <!-- ======================================================
          LASE ONE
     ======================================================= -->
@@ -854,7 +902,6 @@
       </div>
 
 
-
       <div class="product-documents">
 
         <div
@@ -865,8 +912,6 @@
           Documents disponibles
         </div>
 
-
-        <!-- FR -->
 
         <a
           href="Lase-One-fr.pdf"
@@ -905,8 +950,6 @@
         </a>
 
 
-        <!-- EN -->
-
         <a
           href="Lase-One-en.pdf"
           target="_blank"
@@ -943,8 +986,6 @@
 
         </a>
 
-
-        <!-- IT -->
 
         <a
           href="Lase-One-it.pdf"
@@ -1020,7 +1061,6 @@
       </div>
 
 
-
       <div class="product-documents">
 
         <div
@@ -1031,8 +1071,6 @@
           Documents disponibles
         </div>
 
-
-        <!-- FR EN -->
 
         <a
           href="WS-fr-en.pdf"
@@ -1071,8 +1109,6 @@
         </a>
 
 
-        <!-- TECHNIQUE FR -->
-
         <a
           href="WS-technique-fr.pdf"
           target="_blank"
@@ -1110,8 +1146,6 @@
         </a>
 
 
-        <!-- TECHNIQUE EN -->
-
         <a
           href="WS-technocal-en.pdf"
           target="_blank"
@@ -1148,8 +1182,6 @@
 
         </a>
 
-
-        <!-- RESET -->
 
         <a
           href="Reset%20WS.pdf"
@@ -1225,7 +1257,6 @@
       </div>
 
 
-
       <div class="product-documents">
 
         <div
@@ -1236,8 +1267,6 @@
           Documents disponibles
         </div>
 
-
-        <!-- FR EN -->
 
         <a
           href="Cart-fr-en.pdf"
@@ -1275,8 +1304,6 @@
 
         </a>
 
-
-        <!-- CART DB -->
 
         <a
           href="CART-DB.pdf"
@@ -1324,36 +1351,35 @@
 
 
   <!-- ========================================================
-       RED STRIP
+       BRAND FOOTER INTRO
   ========================================================= -->
 
-  <section class="bottom-strip">
+  <section class="brand-footer">
 
-    <div class="bottom-strip-container">
+    <div class="brand-footer-left">
 
-      <h2
-        data-fr="SST Microwelding"
-        data-en="SST Microwelding"
-      >
+      <div class="brand-footer-line"></div>
+
+      <h2>
         SST Microwelding
       </h2>
 
-
-      <p
-        data-fr="Solutions de microsoudure de précision pour les applications industrielles."
-        data-en="Precision microwelding solutions for industrial applications."
-      >
-        Solutions de microsoudure de précision pour les applications industrielles.
-      </p>
-
     </div>
+
+
+    <p
+      data-fr="Solutions de microsoudure de précision pour les applications industrielles."
+      data-en="Precision microwelding solutions for industrial applications."
+    >
+      Solutions de microsoudure de précision pour les applications industrielles.
+    </p>
 
   </section>
 
 
 
   <!-- ========================================================
-       FOOTER
+       LIGHT FOOTER
   ========================================================= -->
 
   <footer>
@@ -1381,6 +1407,7 @@
           SST Microwelding
         </div>
 
+
         <div class="footer-text">
 
           Zone Master Club<br>
@@ -1402,10 +1429,17 @@
           Contact
         </div>
 
+
         <div class="footer-text">
 
-          info@sstmicrowelding.com<br>
-          +33 (0)5 56 29 51 60<br>
+          <a href="mailto:info@sstmicrowelding.com">
+            info@sstmicrowelding.com
+          </a>
+          <br>
+
+          +33 (0)5 56 29 51 60
+          <br>
+
           Fax +33 (0)5 56 29 51 69
 
         </div>
@@ -1477,8 +1511,6 @@
 
     }
 
-
-    /* Language saved in browser */
 
     const savedLanguage =
       localStorage.getItem("sst-language") || "fr";
