@@ -103,10 +103,14 @@
       width: 100%;
     }
 
+    /* =========================
+       LANGUES
+    ========================= */
+
     .language-switch {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 13px;
       font-weight: bold;
@@ -137,7 +141,7 @@
     .hero {
       background: #f1f1f1;
       border-left: 6px solid #e30613;
-      padding: 85px 40px 90px;
+      padding: 90px 40px 95px;
     }
 
     .hero-inner {
@@ -151,17 +155,23 @@
       font-size: 15px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
+
+    /*
+      TITRE VOLONTAIREMENT TRÈS GRAND
+      SUR ORDINATEUR
+    */
 
     .hero h1 {
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: clamp(46px, 6vw, 72px);
+      font-size: clamp(58px, 7.5vw, 96px);
       font-weight: 400;
-      line-height: 1.05;
+      line-height: 0.98;
       text-transform: uppercase;
-      max-width: 950px;
-      margin-bottom: 28px;
+      letter-spacing: -2px;
+      max-width: 1150px;
+      margin-bottom: 30px;
     }
 
     .hero p {
@@ -191,7 +201,7 @@
 
     .intro h2 {
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(32px, 4vw, 50px);
       font-weight: 400;
       text-transform: uppercase;
       line-height: 1.1;
@@ -205,7 +215,7 @@
     }
 
     /* =========================
-       PRODUCTS
+       PRODUITS
     ========================= */
 
     .products {
@@ -240,7 +250,7 @@
 
     .product-name {
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: clamp(34px, 4vw, 54px);
+      font-size: clamp(36px, 4vw, 56px);
       font-weight: 400;
       text-transform: uppercase;
       line-height: 1;
@@ -252,6 +262,10 @@
       max-width: 430px;
       font-size: 16px;
     }
+
+    /* =========================
+       DOCUMENTS
+    ========================= */
 
     .documents {
       display: flex;
@@ -365,7 +379,7 @@
     }
 
     /* =========================
-       MOBILE
+       TABLETTE
     ========================= */
 
     @media (max-width: 900px) {
@@ -400,8 +414,15 @@
         padding: 55px 25px 60px;
       }
 
+      /*
+        Sur tablette/mobile :
+        retour à une taille plus compacte
+      */
+
       .hero h1 {
-        font-size: 44px;
+        font-size: 48px;
+        line-height: 1.02;
+        letter-spacing: -1px;
       }
 
       .hero p {
@@ -463,40 +484,112 @@
       }
     }
 
+    /* =========================
+       PETIT MOBILE
+    ========================= */
+
     @media (max-width: 480px) {
 
-      nav {
-        font-size: 10px;
+      .header-inner {
+        padding: 14px 16px;
       }
 
-      .hero h1 {
-        font-size: 38px;
+      .logo img {
+        width: 135px;
+      }
+
+      nav {
+        font-size: 9px;
+        gap: 8px;
+      }
+
+      .language-switch {
+        font-size: 12px;
+      }
+
+      .language-switch button {
+        padding: 5px 6px;
       }
 
       .hero {
         padding: 45px 20px 50px;
+        border-left-width: 5px;
+      }
+
+      /*
+        Mobile volontairement plus proche
+        de l'ancienne version
+      */
+
+      .hero-kicker {
+        font-size: 12px;
+        margin-bottom: 15px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+        line-height: 1.02;
+        letter-spacing: -0.5px;
+        margin-bottom: 22px;
+      }
+
+      .hero p {
+        font-size: 15px;
+        line-height: 1.55;
       }
 
       .intro {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 55px 20px 30px;
+      }
+
+      .intro h2 {
+        font-size: 31px;
+      }
+
+      .intro p {
+        font-size: 15px;
       }
 
       .products {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 10px 20px 55px;
+      }
+
+      .product {
+        padding: 45px 0;
+        gap: 25px;
       }
 
       .product-name {
         font-size: 34px;
       }
 
+      .product-description {
+        font-size: 15px;
+      }
+
+      .document {
+        padding: 14px;
+        gap: 12px;
+      }
+
+      .pdf-icon {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 10px;
+      }
+
       .document-title {
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1.3;
       }
 
       .document-arrow {
-        font-size: 20px;
+        font-size: 19px;
+      }
+
+      footer {
+        padding: 45px 20px 20px;
       }
     }
   </style>
@@ -542,13 +635,17 @@
       </nav>
 
       <div class="language-switch">
-        <button id="fr-button" onclick="changeLanguage('fr')">
+
+        <button id="fr-button"
+                onclick="changeLanguage('fr')">
           🇫🇷 FR
         </button>
 
-        <button id="en-button" onclick="changeLanguage('en')">
+        <button id="en-button"
+                onclick="changeLanguage('en')">
           🇬🇧 EN
         </button>
+
       </div>
 
     </div>
@@ -560,6 +657,7 @@
   ========================= -->
 
   <section class="hero" id="documentation">
+
     <div class="hero-inner">
 
       <div class="hero-kicker"
@@ -581,6 +679,7 @@
       </p>
 
     </div>
+
   </section>
 
 
@@ -612,7 +711,7 @@
 
 
   <!-- =========================
-       PRODUCTS
+       PRODUITS
   ========================= -->
 
   <main class="products">
@@ -642,7 +741,9 @@
 
       <div class="documents">
 
-        <a class="document" href="pdf/Lase-One-fr.pdf" target="_blank">
+        <a class="document"
+           href="pdf/Lase-One-fr.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -661,7 +762,9 @@
         </a>
 
 
-        <a class="document" href="pdf/Lase-One-en.pdf" target="_blank">
+        <a class="document"
+           href="pdf/Lase-One-en.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -680,7 +783,9 @@
         </a>
 
 
-        <a class="document" href="pdf/Lase-One-it.pdf" target="_blank">
+        <a class="document"
+           href="pdf/Lase-One-it.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -727,8 +832,9 @@
 
       <div class="documents">
 
-
-        <a class="document" href="pdf/WS-fr-en.pdf" target="_blank">
+        <a class="document"
+           href="pdf/WS-fr-en.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -747,7 +853,9 @@
         </a>
 
 
-        <a class="document" href="pdf/WS-technique-fr.pdf" target="_blank">
+        <a class="document"
+           href="pdf/WS-technique-fr.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -766,7 +874,9 @@
         </a>
 
 
-        <a class="document" href="pdf/WS-technocal-en.pdf" target="_blank">
+        <a class="document"
+           href="pdf/WS-technocal-en.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -785,7 +895,9 @@
         </a>
 
 
-        <a class="document" href="pdf/Reset%20WS.pdf" target="_blank">
+        <a class="document"
+           href="pdf/Reset%20WS.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -832,8 +944,9 @@
 
       <div class="documents">
 
-
-        <a class="document" href="pdf/Cart-fr-en.pdf" target="_blank">
+        <a class="document"
+           href="pdf/Cart-fr-en.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -852,7 +965,9 @@
         </a>
 
 
-        <a class="document" href="pdf/CART-DB.pdf" target="_blank">
+        <a class="document"
+           href="pdf/CART-DB.pdf"
+           target="_blank">
 
           <div class="pdf-icon">
             PDF
@@ -918,7 +1033,8 @@
         </div>
 
         <p>
-          <a href="https://www.sstmicrowelding.com/contact" target="_blank">
+          <a href="https://www.sstmicrowelding.com/contact"
+             target="_blank">
             www.sstmicrowelding.com
           </a>
         </p>
@@ -945,9 +1061,8 @@
 
     function changeLanguage(language) {
 
-      const elements = document.querySelectorAll(
-        "[data-fr][data-en]"
-      );
+      const elements =
+        document.querySelectorAll("[data-fr][data-en]");
 
       elements.forEach(function(element) {
 
