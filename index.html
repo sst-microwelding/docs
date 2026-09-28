@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SST Microwelding — Documentation technique</title>
 
   <style>
@@ -19,7 +20,10 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       background: #111827;
       border-bottom: 4px solid #e30613;
@@ -39,7 +43,6 @@
     .logo-area {
       display: flex;
       align-items: center;
-      min-width: 230px;
     }
 
     .logo {
@@ -51,11 +54,10 @@
       object-fit: contain;
     }
 
-    .logo-placeholder {
-      color: white;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
     }
 
     .header-title {
@@ -74,9 +76,57 @@
       font-size: 14px;
     }
 
-    /* HERO */
+    /* =========================
+       LANGUAGE SELECTOR
+    ========================= */
+
+    .language-selector {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    .language-button {
+      border: none;
+      background: transparent;
+      color: #d1d5db;
+      cursor: pointer;
+      padding: 7px 9px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .language-button:hover {
+      background: #374151;
+      color: white;
+    }
+
+    .language-button.active {
+      background: white;
+      color: #111827;
+    }
+
+    .flag {
+      font-size: 18px;
+      margin-right: 4px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      background: linear-gradient(
+        135deg,
+        #111827 0%,
+        #1f2937 100%
+      );
+
       color: white;
       padding: 55px 20px 60px;
       text-align: center;
@@ -104,14 +154,20 @@
       font-size: 17px;
     }
 
-    /* MAIN */
+    /* =========================
+       MAIN
+    ========================= */
+
     main {
       max-width: 1000px;
       margin: 45px auto;
       padding: 0 20px;
     }
 
-    /* PRODUCT CARD */
+    /* =========================
+       PRODUCT CARDS
+    ========================= */
+
     .product-card {
       background: white;
       border-radius: 14px;
@@ -169,7 +225,10 @@
       text-transform: uppercase;
     }
 
-    /* DOCUMENTS */
+    /* =========================
+       DOCUMENTS
+    ========================= */
+
     .documents {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -235,7 +294,10 @@
       font-weight: bold;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       background: #111827;
       color: #9ca3af;
@@ -255,8 +317,11 @@
       font-size: 13px;
     }
 
-    /* MOBILE */
-    @media (max-width: 700px) {
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
 
       .header-inner {
         flex-direction: column;
@@ -264,17 +329,18 @@
         padding: 20px;
       }
 
-      .logo-area {
-        justify-content: center;
+      .header-right {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .header-title {
+        text-align: center;
       }
 
       .logo {
         max-width: 210px;
         max-height: 65px;
-      }
-
-      .header-title {
-        text-align: center;
       }
 
       .hero {
@@ -329,14 +395,23 @@
       .document-link {
         padding: 14px;
       }
+
+      .language-button {
+        padding: 6px 8px;
+      }
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
+
     <div class="header-inner">
 
       <div class="logo-area">
@@ -347,32 +422,86 @@
         >
       </div>
 
-      <div class="header-title">
-        <h1>DOCUMENTATION TECHNIQUE</h1>
-        <p>Manuels et documents produits</p>
+
+      <div class="header-right">
+
+        <div class="header-title">
+
+          <h1 id="header-title">
+            DOCUMENTATION TECHNIQUE
+          </h1>
+
+          <p id="header-subtitle">
+            Manuels et documents produits
+          </p>
+
+        </div>
+
+
+        <!-- LANGUAGE SELECTOR -->
+
+        <div class="language-selector">
+
+          <button
+            class="language-button active"
+            id="btn-fr"
+            onclick="setLanguage('fr')"
+          >
+            <span class="flag">🇫🇷</span>
+            FR
+          </button>
+
+          <button
+            class="language-button"
+            id="btn-en"
+            onclick="setLanguage('en')"
+          >
+            <span class="flag">🇬🇧</span>
+            EN
+          </button>
+
+        </div>
+
       </div>
 
     </div>
+
   </header>
 
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>SST <span>Microwelding</span></h2>
+  <!-- =========================
+       HERO
+  ========================= -->
 
-      <p>
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>
+        SST <span>Microwelding</span>
+      </h2>
+
+      <p id="hero-text">
         Retrouvez ici les manuels, documentations techniques
         et informations nécessaires à l'utilisation de nos équipements.
       </p>
+
     </div>
+
   </section>
 
 
-  <!-- DOCUMENTATION -->
+  <!-- =========================
+       DOCUMENTATION
+  ========================= -->
+
   <main>
 
-    <!-- LASE ONE -->
+
+    <!-- =====================
+         LASE ONE
+    ====================== -->
+
     <section class="product-card">
 
       <div class="product-header">
@@ -384,13 +513,23 @@
           </div>
 
           <div>
-            <h3>LASE ONE</h3>
-            <p>Documentation technique de la machine</p>
+
+            <h3>
+              LASE ONE
+            </h3>
+
+            <p id="lase-description">
+              Documentation technique de la machine
+            </p>
+
           </div>
 
         </div>
 
-        <div class="product-label">
+        <div
+          class="product-label"
+          id="label-documentation-1"
+        >
           DOCUMENTATION
         </div>
 
@@ -399,11 +538,15 @@
 
       <div class="documents">
 
+
+        <!-- FR -->
+
         <a
           class="document-link"
           href="Lase-One-fr.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -411,13 +554,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Français
+                🇫🇷 Français
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="lase-fr-description"
+              >
                 Manuel technique
               </div>
+
             </div>
 
           </div>
@@ -425,14 +573,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- EN -->
 
         <a
           class="document-link"
           href="Lase-One-en.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -440,13 +592,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                English
+                🇬🇧 English
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="lase-en-description"
+              >
                 Technical manual
               </div>
+
             </div>
 
           </div>
@@ -454,14 +611,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- IT -->
 
         <a
           class="document-link"
           href="Lase-One-it.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -469,13 +630,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Italiano
+                🇮🇹 Italiano
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="lase-it-description"
+              >
                 Manuale tecnico
               </div>
+
             </div>
 
           </div>
@@ -483,6 +649,7 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
       </div>
@@ -490,7 +657,10 @@
     </section>
 
 
-    <!-- WS -->
+    <!-- =====================
+         WS
+    ====================== -->
+
     <section class="product-card">
 
       <div class="product-header">
@@ -502,13 +672,23 @@
           </div>
 
           <div>
-            <h3>WS</h3>
-            <p>Documentation technique et procédures</p>
+
+            <h3>
+              WS
+            </h3>
+
+            <p id="ws-description">
+              Documentation technique et procédures
+            </p>
+
           </div>
 
         </div>
 
-        <div class="product-label">
+        <div
+          class="product-label"
+          id="label-documentation-2"
+        >
           DOCUMENTATION
         </div>
 
@@ -517,11 +697,15 @@
 
       <div class="documents">
 
+
+        <!-- FR / EN -->
+
         <a
           class="document-link"
           href="WS-fr-en.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -529,13 +713,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Français / English
+                🇫🇷 🇬🇧 Français / English
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="ws-bilingual-description"
+              >
                 Documentation bilingue
               </div>
+
             </div>
 
           </div>
@@ -543,14 +732,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- TECHNIQUE FR -->
 
         <a
           class="document-link"
           href="WS-technique-fr.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -558,13 +751,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Technique — Français
+                🇫🇷 Technique — Français
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="ws-fr-description"
+              >
                 Documentation technique
               </div>
+
             </div>
 
           </div>
@@ -572,14 +770,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- TECHNIQUE EN -->
 
         <a
           class="document-link"
           href="WS-technocal-en.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -587,13 +789,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Technical — English
+                🇬🇧 Technical — English
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="ws-en-description"
+              >
                 Technical documentation
               </div>
+
             </div>
 
           </div>
@@ -601,14 +808,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- RESET -->
 
         <a
           class="document-link"
           href="Reset%20WS.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -616,13 +827,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
                 Reset WS
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="reset-description"
+              >
                 Procédure de réinitialisation
               </div>
+
             </div>
 
           </div>
@@ -630,6 +846,7 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
       </div>
@@ -637,7 +854,10 @@
     </section>
 
 
-    <!-- CART -->
+    <!-- =====================
+         CART
+    ====================== -->
+
     <section class="product-card">
 
       <div class="product-header">
@@ -649,13 +869,23 @@
           </div>
 
           <div>
-            <h3>CART</h3>
-            <p>Documentation du chariot électrique</p>
+
+            <h3>
+              CART
+            </h3>
+
+            <p id="cart-description">
+              Documentation du chariot électrique
+            </p>
+
           </div>
 
         </div>
 
-        <div class="product-label">
+        <div
+          class="product-label"
+          id="label-documentation-3"
+        >
           DOCUMENTATION
         </div>
 
@@ -664,11 +894,15 @@
 
       <div class="documents">
 
+
+        <!-- FR / EN -->
+
         <a
           class="document-link"
           href="Cart-fr-en.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -676,13 +910,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
-                Français / English
+                🇫🇷 🇬🇧 Français / English
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="cart-bilingual-description"
+              >
                 Documentation bilingue
               </div>
+
             </div>
 
           </div>
@@ -690,14 +929,18 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
+
+        <!-- CART DB -->
 
         <a
           class="document-link"
           href="CART-DB.pdf"
           target="_blank"
         >
+
           <div class="document-info">
 
             <div class="pdf-icon">
@@ -705,13 +948,18 @@
             </div>
 
             <div>
+
               <div class="document-name">
                 CART — Documentation
               </div>
 
-              <div class="document-description">
+              <div
+                class="document-description"
+                id="cart-db-description"
+              >
                 Document technique
               </div>
+
             </div>
 
           </div>
@@ -719,6 +967,7 @@
           <div class="arrow">
             →
           </div>
+
         </a>
 
       </div>
@@ -728,18 +977,229 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
     <strong>
       SST MICROWELDING
     </strong>
 
-    <p>
+    <p id="footer-text">
       Documentation technique
     </p>
 
   </footer>
+
+
+  <!-- =========================
+       LANGUAGE SCRIPT
+  ========================= -->
+
+  <script>
+
+    const translations = {
+
+      fr: {
+
+        headerTitle:
+          "DOCUMENTATION TECHNIQUE",
+
+        headerSubtitle:
+          "Manuels et documents produits",
+
+        heroText:
+          "Retrouvez ici les manuels, documentations techniques et informations nécessaires à l'utilisation de nos équipements.",
+
+        laseDescription:
+          "Documentation technique de la machine",
+
+        documentation:
+          "DOCUMENTATION",
+
+        laseFrDescription:
+          "Manuel technique",
+
+        laseEnDescription:
+          "Technical manual",
+
+        laseItDescription:
+          "Manuale tecnico",
+
+        wsDescription:
+          "Documentation technique et procédures",
+
+        wsBilingualDescription:
+          "Documentation bilingue",
+
+        wsFrDescription:
+          "Documentation technique",
+
+        wsEnDescription:
+          "Documentation technique",
+
+        resetDescription:
+          "Procédure de réinitialisation",
+
+        cartDescription:
+          "Documentation du chariot électrique",
+
+        cartBilingualDescription:
+          "Documentation bilingue",
+
+        cartDbDescription:
+          "Document technique",
+
+        footerText:
+          "Documentation technique"
+
+      },
+
+
+      en: {
+
+        headerTitle:
+          "TECHNICAL DOCUMENTATION",
+
+        headerSubtitle:
+          "Product manuals and documentation",
+
+        heroText:
+          "Find here the manuals, technical documentation and information required for the use of our equipment.",
+
+        laseDescription:
+          "Technical documentation for the machine",
+
+        documentation:
+          "DOCUMENTATION",
+
+        laseFrDescription:
+          "Technical manual",
+
+        laseEnDescription:
+          "Technical manual",
+
+        laseItDescription:
+          "Technical manual",
+
+        wsDescription:
+          "Technical documentation and procedures",
+
+        wsBilingualDescription:
+          "Bilingual documentation",
+
+        wsFrDescription:
+          "Technical documentation",
+
+        wsEnDescription:
+          "Technical documentation",
+
+        resetDescription:
+          "Reset procedure",
+
+        cartDescription:
+          "Electric trolley documentation",
+
+        cartBilingualDescription:
+          "Bilingual documentation",
+
+        cartDbDescription:
+          "Technical document",
+
+        footerText:
+          "Technical documentation"
+
+      }
+
+    };
+
+
+    function setLanguage(language) {
+
+      const t = translations[language];
+
+      document.documentElement.lang = language;
+
+      document.getElementById("header-title").textContent =
+        t.headerTitle;
+
+      document.getElementById("header-subtitle").textContent =
+        t.headerSubtitle;
+
+      document.getElementById("hero-text").textContent =
+        t.heroText;
+
+      document.getElementById("lase-description").textContent =
+        t.laseDescription;
+
+      document.getElementById("lase-fr-description").textContent =
+        t.laseFrDescription;
+
+      document.getElementById("lase-en-description").textContent =
+        t.laseEnDescription;
+
+      document.getElementById("lase-it-description").textContent =
+        t.laseItDescription;
+
+      document.getElementById("ws-description").textContent =
+        t.wsDescription;
+
+      document.getElementById("ws-bilingual-description").textContent =
+        t.wsBilingualDescription;
+
+      document.getElementById("ws-fr-description").textContent =
+        t.wsFrDescription;
+
+      document.getElementById("ws-en-description").textContent =
+        t.wsEnDescription;
+
+      document.getElementById("reset-description").textContent =
+        t.resetDescription;
+
+      document.getElementById("cart-description").textContent =
+        t.cartDescription;
+
+      document.getElementById("cart-bilingual-description").textContent =
+        t.cartBilingualDescription;
+
+      document.getElementById("cart-db-description").textContent =
+        t.cartDbDescription;
+
+      document.getElementById("footer-text").textContent =
+        t.footerText;
+
+
+      document
+        .getElementById("btn-fr")
+        .classList
+        .toggle("active", language === "fr");
+
+      document
+        .getElementById("btn-en")
+        .classList
+        .toggle("active", language === "en");
+
+
+      localStorage.setItem(
+        "sst-language",
+        language
+      );
+
+    }
+
+
+    /* =========================
+       LOAD SAVED LANGUAGE
+    ========================= */
+
+    const savedLanguage =
+      localStorage.getItem("sst-language") || "fr";
+
+    setLanguage(savedLanguage);
+
+  </script>
 
 </body>
 </html>
