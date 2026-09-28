@@ -186,7 +186,6 @@ a {
    LANGUAGE CONTENT
 ========================= */
 
-/* Tout est caché par défaut */
 .lang-fr,
 .lang-en,
 .lang-it,
@@ -543,15 +542,28 @@ footer {
         border-bottom: 0;
     }
 
+    /* CENTRAGE DU LOGO */
     .header-container {
         padding: 18px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-link {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .logo {
         max-width: 190px;
     }
 
+    /* CENTRAGE DES LANGUES */
     .navigation {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
         gap: 0;
     }
 
@@ -560,7 +572,16 @@ footer {
     }
 
     .language-switch {
-        margin-top: 10px;
+        width: 100%;
+        margin: 10px 0 0;
+        padding-left: 0;
+        border-left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .language-switch button {
+        padding: 5px 6px;
     }
 
     .hero {
