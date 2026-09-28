@@ -10,6 +10,7 @@
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 
 <style>
+
 @font-face {
     font-family: "Eurostile SST";
     src: url("fonts/EurostileExtended.ttf") format("truetype");
@@ -100,13 +101,13 @@ nav a:hover {
 }
 
 /* =========================
-   LANGUAGE SWITCH
+   LANGUES
    ========================= */
 
 .language-switch {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     margin-left: 8px;
     flex-shrink: 0;
 }
@@ -114,24 +115,35 @@ nav a:hover {
 .language-switch button {
     border: 0;
     background: transparent;
-    padding: 3px 4px;
+    padding: 2px;
     cursor: pointer;
-    font-size: 12px;
-    opacity: 0.45;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0.28;
+    filter: grayscale(100%);
+    transition:
+        opacity 0.2s ease,
+        filter 0.2s ease,
+        transform 0.2s ease;
 }
 
 .language-switch button:hover {
-    opacity: 1;
+    opacity: 0.8;
+    filter: grayscale(20%);
     transform: translateY(-1px);
 }
 
 .language-switch button.active {
     opacity: 1;
+    filter: grayscale(0%);
+    transform: none;
 }
 
 .language-switch .flag {
-    font-size: 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 18px;
+    font-size: 18px;
     line-height: 1;
 }
 
@@ -212,7 +224,7 @@ nav a:hover {
 }
 
 /* =========================
-   PRODUCTS
+   PRODUITS
    ========================= */
 
 .product {
@@ -280,7 +292,9 @@ nav a:hover {
     min-height: 64px;
     margin-bottom: 10px;
     padding: 0 18px 0 0;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .document-row:hover {
@@ -454,12 +468,14 @@ footer {
         margin-top: 10px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <div class="header-inner">
 
         <a href="#" class="logo" aria-label="SST Microwelding">
@@ -467,13 +483,25 @@ footer {
         </a>
 
         <nav>
-            <a href="#documentation" data-i18n="navDocumentation">Documentation</a>
-            <a href="#lase-one" data-i18n="navLase">Lase One</a>
-            <a href="#ws">WS</a>
-            <a href="#cart">CART</a>
+            <a href="#documentation" data-i18n="navDocumentation">
+                Documentation
+            </a>
+
+            <a href="#lase-one" data-i18n="navLase">
+                Lase One
+            </a>
+
+            <a href="#ws">
+                WS
+            </a>
+
+            <a href="#cart">
+                CART
+            </a>
         </nav>
 
         <div class="language-switch" aria-label="Language selection">
+
             <button type="button" data-lang="fr" aria-label="Français">
                 <span class="flag">🇫🇷</span>
             </button>
@@ -493,15 +521,18 @@ footer {
             <button type="button" data-lang="de" aria-label="Deutsch">
                 <span class="flag">🇩🇪</span>
             </button>
+
         </div>
 
     </div>
+
 </header>
 
 
 <main>
 
     <section class="hero">
+
         <div class="hero-inner">
 
             <h1 data-i18n="heroTitle">
@@ -514,16 +545,20 @@ footer {
             </div>
 
         </div>
+
     </section>
 
 
     <section class="intro" id="documentation">
 
         <div class="intro-top">
+
             <h2 data-i18n="introTitle">
                 Documentation produits
             </h2>
+
             <div class="section-line"></div>
+
         </div>
 
         <p data-i18n="introText">
@@ -668,164 +703,219 @@ const translations = {
         navLase: "Lase One",
 
         heroTitle: 'Documentation <span>technique</span>',
+
         heroDescription:
             "Retrouvez les documentations techniques et manuels des solutions SST Microwelding.",
 
-        introTitle: "Documentation produits",
+        introTitle:
+            "Documentation produits",
+
         introText:
             "Sélectionnez votre langue pour afficher les documents disponibles pour chaque solution.",
 
-        documentsTitle: "Documents disponibles",
+        documentsTitle:
+            "Documents disponibles",
 
-        laseSubtitle: "Système de soudage laser",
+        laseSubtitle:
+            "Système de soudage laser",
+
         laseDescription:
             "Documentation technique, manuels et informations relatives au système Lase One.",
 
-        wsSubtitle: "Système de soudage",
+        wsSubtitle:
+            "Système de soudage",
+
         wsDescription:
             "Documentation technique et informations relatives aux systèmes WS.",
 
-        cartSubtitle: "Solutions CART",
+        cartSubtitle:
+            "Solutions CART",
+
         cartDescription:
             "Documentation et informations techniques relatives aux solutions CART.",
 
-        footerText: "Documentation technique"
+        footerText:
+            "Documentation technique"
     },
+
 
     en: {
         navDocumentation: "Documentation",
         navLase: "Lase One",
 
-        heroTitle: 'Technical <span>documentation</span>',
+        heroTitle:
+            'Technical <span>documentation</span>',
+
         heroDescription:
             "Technical documentation and manuals for SST Microwelding solutions.",
 
-        introTitle: "Product documentation",
+        introTitle:
+            "Product documentation",
+
         introText:
             "Select your language to display the available documents for each solution.",
 
-        documentsTitle: "Available documents",
+        documentsTitle:
+            "Available documents",
 
-        laseSubtitle: "Laser welding system",
+        laseSubtitle:
+            "Laser welding system",
+
         laseDescription:
             "Technical documentation, manuals and information for the Lase One system.",
 
-        wsSubtitle: "Welding system",
+        wsSubtitle:
+            "Welding system",
+
         wsDescription:
             "Technical documentation and information for WS systems.",
 
-        cartSubtitle: "CART solutions",
+        cartSubtitle:
+            "CART solutions",
+
         cartDescription:
             "Documentation and technical information for CART solutions.",
 
-        footerText: "Technical documentation"
+        footerText:
+            "Technical documentation"
     },
+
 
     it: {
         navDocumentation: "Documentazione",
         navLase: "Lase One",
 
-        heroTitle: 'Documentazione <span>tecnica</span>',
+        heroTitle:
+            'Documentazione <span>tecnica</span>',
+
         heroDescription:
             "Documentazione tecnica e manuali per le soluzioni SST Microwelding.",
 
-        introTitle: "Documentazione prodotti",
+        introTitle:
+            "Documentazione prodotti",
+
         introText:
             "Seleziona la lingua per visualizzare i documenti disponibili per ogni soluzione.",
 
-        documentsTitle: "Documenti disponibili",
+        documentsTitle:
+            "Documenti disponibili",
 
-        laseSubtitle: "Sistema di saldatura laser",
+        laseSubtitle:
+            "Sistema di saldatura laser",
+
         laseDescription:
             "Documentazione tecnica, manuali e informazioni sul sistema Lase One.",
 
-        wsSubtitle: "Sistema di saldatura",
+        wsSubtitle:
+            "Sistema di saldatura",
+
         wsDescription:
             "Documentazione tecnica e informazioni sui sistemi WS.",
 
-        cartSubtitle: "Soluzioni CART",
+        cartSubtitle:
+            "Soluzioni CART",
+
         cartDescription:
             "Documentazione e informazioni tecniche relative alle soluzioni CART.",
 
-        footerText: "Documentazione tecnica"
+        footerText:
+            "Documentazione tecnica"
     },
+
 
     es: {
         navDocumentation: "Documentación",
         navLase: "Lase One",
 
-        heroTitle: 'Documentación <span>técnica</span>',
+        heroTitle:
+            'Documentación <span>técnica</span>',
+
         heroDescription:
             "Documentación técnica y manuales para las soluciones SST Microwelding.",
 
-        introTitle: "Documentación de productos",
+        introTitle:
+            "Documentación de productos",
+
         introText:
             "Seleccione su idioma para mostrar los documentos disponibles para cada solución.",
 
-        documentsTitle: "Documentos disponibles",
+        documentsTitle:
+            "Documentos disponibles",
 
-        laseSubtitle: "Sistema de soldadura láser",
+        laseSubtitle:
+            "Sistema de soldadura láser",
+
         laseDescription:
             "Documentación técnica, manuales e información sobre el sistema Lase One.",
 
-        wsSubtitle: "Sistema de soldadura",
+        wsSubtitle:
+            "Sistema de soldadura",
+
         wsDescription:
             "Documentación técnica e información sobre los sistemas WS.",
 
-        cartSubtitle: "Soluciones CART",
+        cartSubtitle:
+            "Soluciones CART",
+
         cartDescription:
             "Documentación e información técnica sobre las soluciones CART.",
 
-        footerText: "Documentación técnica"
+        footerText:
+            "Documentación técnica"
     },
+
 
     de: {
         navDocumentation: "Dokumentation",
         navLase: "Lase One",
 
-        heroTitle: 'Technische <span>Dokumentation</span>',
+        heroTitle:
+            'Technische <span>Dokumentation</span>',
+
         heroDescription:
             "Technische Dokumentation und Handbücher für SST Microwelding Lösungen.",
 
-        introTitle: "Produktdokumentation",
+        introTitle:
+            "Produktdokumentation",
+
         introText:
             "Wählen Sie Ihre Sprache, um die verfügbaren Dokumente für jede Lösung anzuzeigen.",
 
-        documentsTitle: "Verfügbare Dokumente",
+        documentsTitle:
+            "Verfügbare Dokumente",
 
-        laseSubtitle: "Laserschweißsystem",
+        laseSubtitle:
+            "Laserschweißsystem",
+
         laseDescription:
             "Technische Dokumentation, Handbücher und Informationen zum Lase One System.",
 
-        wsSubtitle: "Schweißsystem",
+        wsSubtitle:
+            "Schweißsystem",
+
         wsDescription:
             "Technische Dokumentation und Informationen zu den WS Systemen.",
 
-        cartSubtitle: "CART Lösungen",
+        cartSubtitle:
+            "CART Lösungen",
+
         cartDescription:
             "Dokumentation und technische Informationen zu den CART Lösungen.",
 
-        footerText: "Technische Dokumentation"
+        footerText:
+            "Technische Dokumentation"
     }
 
 };
 
 
 /* =========================================================
-   DOCUMENTS
-   =========================================================
-
-   La logique est volontairement simple :
-
-   FR -> documents français
-   EN -> documents anglais
-   IT -> italien + anglais si disponible
-   ES -> espagnol + anglais si disponible
-   DE -> allemand + anglais si disponible
-*/
-
+   DOCUMENTS DISPONIBLES
+   ========================================================= */
 
 const documents = {
+
+    /* ---------- LASE ONE ---------- */
 
     laseOne: {
 
@@ -871,8 +961,11 @@ const documents = {
                 file: "pdf/Lase-One-en.pdf"
             }
         ]
+
     },
 
+
+    /* ---------- WS ---------- */
 
     ws: {
 
@@ -884,17 +977,25 @@ const documents = {
             {
                 name: "🇫🇷 Technique",
                 file: "pdf/WS-technique-fr.pdf"
+            },
+            {
+                name: "🇬🇧 Reset WS",
+                file: "pdf/Reset%20WS.pdf"
             }
         ],
 
         en: [
             {
+                name: "🇬🇧 English",
+                file: "pdf/WS-technocal-en.pdf"
+            },
+            {
                 name: "🇫🇷 🇬🇧 Français / English",
                 file: "pdf/WS-fr-en.pdf"
             },
             {
-                name: "🇬🇧 Technical",
-                file: "pdf/WS-technocal-en.pdf"
+                name: "🇬🇧 Reset WS",
+                file: "pdf/Reset%20WS.pdf"
             }
         ],
 
@@ -902,6 +1003,10 @@ const documents = {
             {
                 name: "🇬🇧 English",
                 file: "pdf/WS-technocal-en.pdf"
+            },
+            {
+                name: "🇬🇧 Reset WS",
+                file: "pdf/Reset%20WS.pdf"
             }
         ],
 
@@ -909,6 +1014,10 @@ const documents = {
             {
                 name: "🇬🇧 English",
                 file: "pdf/WS-technocal-en.pdf"
+            },
+            {
+                name: "🇬🇧 Reset WS",
+                file: "pdf/Reset%20WS.pdf"
             }
         ],
 
@@ -916,10 +1025,17 @@ const documents = {
             {
                 name: "🇬🇧 English",
                 file: "pdf/WS-technocal-en.pdf"
+            },
+            {
+                name: "🇬🇧 Reset WS",
+                file: "pdf/Reset%20WS.pdf"
             }
         ]
+
     },
 
+
+    /* ---------- CART ---------- */
 
     cart: {
 
@@ -929,7 +1045,7 @@ const documents = {
                 file: "pdf/Cart-fr-en.pdf"
             },
             {
-                name: "🇬🇧 CART-DB — English",
+                name: "🇬🇧 CART-DB",
                 file: "pdf/CART-DB.pdf"
             }
         ],
@@ -940,7 +1056,7 @@ const documents = {
                 file: "pdf/Cart-fr-en.pdf"
             },
             {
-                name: "🇬🇧 CART-DB — English",
+                name: "🇬🇧 CART-DB",
                 file: "pdf/CART-DB.pdf"
             }
         ],
@@ -951,7 +1067,7 @@ const documents = {
                 file: "pdf/Cart-fr-en.pdf"
             },
             {
-                name: "🇬🇧 CART-DB — English",
+                name: "🇬🇧 CART-DB",
                 file: "pdf/CART-DB.pdf"
             }
         ],
@@ -962,7 +1078,7 @@ const documents = {
                 file: "pdf/Cart-fr-en.pdf"
             },
             {
-                name: "🇬🇧 CART-DB — English",
+                name: "🇬🇧 CART-DB",
                 file: "pdf/CART-DB.pdf"
             }
         ],
@@ -973,42 +1089,44 @@ const documents = {
                 file: "pdf/Cart-fr-en.pdf"
             },
             {
-                name: "🇬🇧 CART-DB — English",
+                name: "🇬🇧 CART-DB",
                 file: "pdf/CART-DB.pdf"
             }
         ]
+
     }
 
 };
 
 
 /* =========================================================
-   AJOUT AUTOMATIQUE DU RESET WS
+   AFFICHAGE D'UN DOCUMENT
    ========================================================= */
 
-function addResetWS(lang, list) {
+function createDocumentRow(document) {
 
-    /*
-       Le Reset WS n'existe pas dans une langue particulière.
-       Il reste donc disponible en anglais pour les langues
-       qui utilisent l'anglais comme langue de remplacement.
-    */
+    const link = document.createElement("a");
 
-    if (lang === "fr" || lang === "en" || lang === "it" || lang === "es" || lang === "de") {
+    link.className = "document-row";
 
-        list.push({
-            name: "🇬🇧 Reset WS — English",
-            file: "pdf/Reset%20WS.pdf"
-        });
+    link.href = document.file;
 
-    }
+    link.target = "_blank";
 
-    return list;
+    link.rel = "noopener noreferrer";
+
+    link.innerHTML = `
+        <div class="pdf-icon">PDF</div>
+        <div class="document-name">${document.name}</div>
+        <div class="document-arrow">›</div>
+    `;
+
+    return link;
 }
 
 
 /* =========================================================
-   AFFICHAGE DES DOCUMENTS
+   AFFICHAGE D'UNE LISTE DE DOCUMENTS
    ========================================================= */
 
 function renderDocuments(containerId, list) {
@@ -1023,22 +1141,12 @@ function renderDocuments(containerId, list) {
 
     list.forEach(document => {
 
-        const link = document.createElement("a");
-
-        link.className = "document-row";
-        link.href = document.file;
-        link.target = "_blank";
-        link.rel = "noopener";
-
-        link.innerHTML = `
-            <div class="pdf-icon">PDF</div>
-            <div class="document-name">${document.name}</div>
-            <div class="document-arrow">›</div>
-        `;
-
-        container.appendChild(link);
+        container.appendChild(
+            createDocumentRow(document)
+        );
 
     });
+
 }
 
 
@@ -1054,73 +1162,63 @@ function applyLanguage(lang) {
 
     document.documentElement.lang = lang;
 
-    /*
-       Traduction des textes
-    */
 
-    document.querySelectorAll("[data-i18n]").forEach(element => {
+    /* Textes */
 
-        const key = element.getAttribute("data-i18n");
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
 
-        if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
+            const key = element.dataset.i18n;
 
-    });
+            if (translations[lang][key]) {
+
+                element.innerHTML =
+                    translations[lang][key];
+
+            }
+
+        });
 
 
-    /*
-       Documents
-    */
-
-    const laseDocuments =
-        documents.laseOne[lang] ||
-        documents.laseOne.en;
-
-    const wsDocuments =
-        documents.ws[lang] ||
-        documents.ws.en;
-
-    const cartDocuments =
-        documents.cart[lang] ||
-        documents.cart.en;
-
+    /* Documents */
 
     renderDocuments(
         "docs-lase-one",
-        laseDocuments
+        documents.laseOne[lang]
+            || documents.laseOne.en
     );
 
 
     renderDocuments(
         "docs-ws",
-        addResetWS(lang, [...wsDocuments])
+        documents.ws[lang]
+            || documents.ws.en
     );
 
 
     renderDocuments(
         "docs-cart",
-        cartDocuments
+        documents.cart[lang]
+            || documents.cart.en
     );
 
 
-    /*
-       Bouton de langue actif
-    */
+    /* Drapeau actif */
 
-    document.querySelectorAll(".language-switch button").forEach(button => {
+    document
+        .querySelectorAll(".language-switch button")
+        .forEach(button => {
 
-        button.classList.toggle(
-            "active",
-            button.dataset.lang === lang
-        );
+            button.classList.toggle(
+                "active",
+                button.dataset.lang === lang
+            );
 
-    });
+        });
 
 
-    /*
-       Mémorisation
-    */
+    /* Mémorisation */
 
     localStorage.setItem(
         "sstDocumentationLanguage",
@@ -1131,52 +1229,60 @@ function applyLanguage(lang) {
 
 
 /* =========================================================
-   CHANGEMENT DE LANGUE
+   CLIC SUR UNE LANGUE
    ========================================================= */
 
-document.querySelectorAll(".language-switch button").forEach(button => {
+document
+    .querySelectorAll(".language-switch button")
+    .forEach(button => {
 
-    button.addEventListener("click", () => {
+        button.addEventListener("click", function() {
 
-        const lang = button.dataset.lang;
+            applyLanguage(
+                this.dataset.lang
+            );
 
-        applyLanguage(lang);
+        });
 
     });
 
-});
-
 
 /* =========================================================
-   LANGUE INITIALE
+   LANGUE AU CHARGEMENT
    ========================================================= */
 
 const savedLanguage =
-    localStorage.getItem("sstDocumentationLanguage");
+    localStorage.getItem(
+        "sstDocumentationLanguage"
+    );
 
 
-if (savedLanguage && translations[savedLanguage]) {
+if (
+    savedLanguage &&
+    translations[savedLanguage]
+) {
 
     applyLanguage(savedLanguage);
 
 } else {
 
-    /*
-       Première visite :
-       on essaie de détecter la langue du navigateur.
-    */
-
     const browserLanguage =
-        (navigator.language || "fr")
+        (
+            navigator.language
+            || "fr"
+        )
         .toLowerCase()
         .substring(0, 2);
+
 
     const initialLanguage =
         translations[browserLanguage]
             ? browserLanguage
             : "fr";
 
+
     applyLanguage(initialLanguage);
+
 }
 
 </script>
