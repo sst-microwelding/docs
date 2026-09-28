@@ -8,9 +8,9 @@
 
   <style>
 
-    /* =========================================================
-       FONTS
-    ========================================================= */
+    /* =====================================================
+       POLICES
+    ===================================================== */
 
     @font-face {
       font-family: "Eurostile SST";
@@ -29,27 +29,21 @@
     }
 
 
-    /* =========================================================
-       VARIABLES
-    ========================================================= */
+    /* =====================================================
+       BASE
+    ===================================================== */
 
     :root {
       --red: #e30613;
-      --red-dark: #bd000b;
       --black: #111111;
-      --dark: #1a1a1a;
+      --dark: #222222;
       --gray-dark: #555555;
       --gray: #777777;
       --gray-light: #eeeeee;
-      --gray-soft: #f5f5f5;
+      --gray-soft: #f6f6f6;
+      --border: #dddddd;
       --white: #ffffff;
-      --border: #dedede;
     }
-
-
-    /* =========================================================
-       RESET
-    ========================================================= */
 
     * {
       margin: 0;
@@ -74,65 +68,54 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        HEADER
-    ========================================================= */
+    ===================================================== */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
 
-      height: 88px;
-
-      display: flex;
-      align-items: center;
-
       background: var(--white);
 
-      border-bottom: 1px solid #d8d8d8;
+      border-bottom: 1px solid #dddddd;
     }
 
     .header-inner {
       width: min(1380px, 92%);
+      height: 86px;
       margin: auto;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .logo {
       display: flex;
       align-items: center;
     }
 
     .logo img {
       width: 175px;
-      height: auto;
       display: block;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 42px;
+      gap: 38px;
+
       margin-left: auto;
     }
 
     nav a {
       position: relative;
 
+      padding: 10px 0;
+
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 400;
+      font-size: 12px;
+
       text-transform: uppercase;
       letter-spacing: 0.04em;
 
       color: var(--black);
-
-      padding: 31px 0;
     }
 
     nav a::after {
@@ -140,10 +123,10 @@
 
       position: absolute;
       left: 0;
-      bottom: 21px;
+      bottom: 0;
 
       width: 0;
-      height: 3px;
+      height: 2px;
 
       background: var(--red);
 
@@ -155,18 +138,18 @@
     }
 
 
-    /* =========================================================
-       LANGUAGE SWITCH
-    ========================================================= */
+    /* =====================================================
+       LANGUES
+    ===================================================== */
 
     .language-switch {
       display: flex;
       align-items: center;
-      gap: 5px;
 
-      border-left: 1px solid #d5d5d5;
+      margin-left: 28px;
+      padding-left: 20px;
 
-      padding-left: 22px;
+      border-left: 1px solid #dddddd;
     }
 
     .language-switch button {
@@ -175,25 +158,26 @@
 
       cursor: pointer;
 
-      font-family: "Eurostile SST", Arial, sans-serif;
+      padding: 6px 8px;
+
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
 
-      padding: 7px 8px;
+      color: var(--black);
 
       opacity: 0.45;
 
-      transition:
-        opacity 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .language-switch button:hover {
-      opacity: 0.8;
+      transition: opacity 0.2s ease,
+                  background 0.2s ease;
     }
 
     .language-switch button.active {
       opacity: 1;
       background: var(--gray-soft);
+    }
+
+    .language-switch button:hover {
+      opacity: 1;
     }
 
     .flag {
@@ -203,29 +187,18 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        HERO
-    ========================================================= */
+    ===================================================== */
 
     .hero {
       position: relative;
 
-      min-height: 470px;
+      background: #f1f1f1;
 
-      display: flex;
-      align-items: center;
+      border-bottom: 1px solid var(--border);
 
       overflow: hidden;
-
-      background:
-        linear-gradient(
-          90deg,
-          #f0f0f0 0%,
-          #f7f7f7 55%,
-          #ffffff 100%
-        );
-
-      border-bottom: 1px solid #dedede;
     }
 
     .hero::before {
@@ -236,47 +209,28 @@
       top: 0;
       bottom: 0;
 
-      width: 9px;
+      width: 6px;
 
       background: var(--red);
-    }
-
-    .hero::after {
-      content: "SST";
-
-      position: absolute;
-
-      right: 4%;
-      bottom: -80px;
-
-      font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: 260px;
-      line-height: 1;
-
-      color: rgba(0, 0, 0, 0.025);
-
-      pointer-events: none;
     }
 
     .hero-inner {
       width: min(1380px, 92%);
       margin: auto;
 
-      position: relative;
-      z-index: 2;
-
-      padding: 75px 0;
+      padding: 78px 0 82px;
     }
 
     .hero-kicker {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
 
-      margin-bottom: 24px;
+      margin-bottom: 18px;
 
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: 14px;
+      font-size: 13px;
+
       text-transform: uppercase;
       letter-spacing: 0.06em;
 
@@ -286,25 +240,23 @@
     .hero-kicker::before {
       content: "";
 
-      display: block;
-
-      width: 42px;
+      width: 35px;
       height: 3px;
 
       background: var(--red);
     }
 
     .hero h1 {
-      max-width: 950px;
+      max-width: 800px;
 
       font-family: "Eurostile SST", Arial, sans-serif;
       font-weight: 400;
 
-      font-size: clamp(48px, 7vw, 92px);
-      line-height: 0.98;
+      font-size: clamp(46px, 6vw, 72px);
+      line-height: 1.02;
 
       text-transform: uppercase;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.025em;
     }
 
     .hero h1 span {
@@ -312,63 +264,63 @@
     }
 
     .hero-description {
-      max-width: 680px;
+      max-width: 650px;
 
-      margin-top: 32px;
+      margin-top: 25px;
 
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.75;
 
-      color: #555555;
+      color: var(--gray-dark);
     }
 
 
-    /* =========================================================
+    /* =====================================================
        INTRO
-    ========================================================= */
+    ===================================================== */
 
     .intro {
       width: min(1380px, 92%);
       margin: auto;
 
-      padding: 105px 0 65px;
+      padding: 85px 0 55px;
     }
 
     .section-label {
+      margin-bottom: 12px;
+
       font-family: "Eurostile SST", Arial, sans-serif;
       font-size: 12px;
 
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
 
       color: var(--red);
-
-      margin-bottom: 14px;
     }
 
     .intro h2 {
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1;
+      font-size: clamp(28px, 4vw, 44px);
 
       font-weight: 400;
+      line-height: 1.1;
 
       text-transform: uppercase;
     }
 
     .intro-line {
-      width: 70px;
-      height: 4px;
+      width: 55px;
+      height: 3px;
+
+      margin-top: 22px;
 
       background: var(--red);
-
-      margin-top: 27px;
     }
 
 
-    /* =========================================================
-       PRODUCT SECTIONS
-    ========================================================= */
+    /* =====================================================
+       PRODUITS
+    ===================================================== */
 
     .products {
       border-top: 1px solid var(--border);
@@ -377,67 +329,64 @@
     .product {
       position: relative;
 
-      width: 100%;
-
       border-bottom: 1px solid var(--border);
 
       background: var(--white);
     }
 
     .product:nth-child(even) {
-      background: #f5f5f5;
+      background: #f7f7f7;
     }
 
     .product-inner {
       width: min(1380px, 92%);
+      min-height: 390px;
+
       margin: auto;
 
       display: grid;
-      grid-template-columns: 39% 61%;
-
-      min-height: 430px;
+      grid-template-columns: 38% 62%;
     }
 
 
-    /* =========================================================
-       PRODUCT INFO
-    ========================================================= */
+    /* =====================================================
+       INFOS PRODUIT
+    ===================================================== */
 
     .product-info {
       position: relative;
 
-      padding: 75px 70px 75px 0;
+      padding: 65px 60px 65px 0;
 
       border-right: 1px solid var(--border);
     }
 
     .product-number {
+      margin-bottom: 20px;
+
       font-family: "Eurostile SST", Arial, sans-serif;
-      font-size: 72px;
+      font-size: 58px;
       line-height: 1;
 
       color: var(--red);
-
-      margin-bottom: 28px;
-
-      opacity: 0.95;
     }
 
     .product-name {
-      font-family: "Eurostile SST", Arial, sans-serif;
+      margin-bottom: 20px;
 
-      font-size: clamp(35px, 4vw, 58px);
+      font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+
+      font-weight: 400;
       line-height: 1;
 
       text-transform: uppercase;
-
-      margin-bottom: 25px;
     }
 
     .product-description {
       max-width: 390px;
 
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.75;
 
       color: var(--gray-dark);
@@ -449,58 +398,55 @@
       left: 0;
       bottom: 0;
 
-      width: 80px;
-      height: 5px;
+      width: 60px;
+      height: 3px;
 
       background: var(--red);
     }
 
 
-    /* =========================================================
+    /* =====================================================
        DOCUMENTS
-    ========================================================= */
+    ===================================================== */
 
     .documents {
-      padding: 75px 0 75px 70px;
+      padding: 65px 0 65px 60px;
     }
 
     .documents-title {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
+
+      margin-bottom: 22px;
 
       font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: 14px;
 
-      font-size: 15px;
       text-transform: uppercase;
-
-      letter-spacing: 0.06em;
-
-      margin-bottom: 25px;
+      letter-spacing: 0.04em;
     }
 
     .documents-title::before {
       content: "";
 
-      width: 5px;
-      height: 22px;
+      width: 4px;
+      height: 20px;
 
       background: var(--red);
     }
 
     .document-list {
-      border-top: 1px solid #cfcfcf;
+      border-top: 1px solid #d2d2d2;
     }
 
     .document {
-      position: relative;
+      min-height: 70px;
 
       display: flex;
       align-items: center;
 
-      min-height: 78px;
-
-      border-bottom: 1px solid #cfcfcf;
+      border-bottom: 1px solid #d2d2d2;
 
       transition:
         background 0.2s ease,
@@ -508,13 +454,13 @@
     }
 
     .document:hover {
-      background: rgba(227, 6, 19, 0.045);
-      padding-left: 10px;
+      background: rgba(227, 6, 19, 0.035);
+      padding-left: 8px;
     }
 
     .pdf-icon {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
 
       flex-shrink: 0;
 
@@ -522,34 +468,29 @@
       align-items: center;
       justify-content: center;
 
-      margin-right: 20px;
+      margin-right: 18px;
 
       background: var(--red);
 
-      color: var(--white);
+      color: white;
 
-      font-family: Arial, sans-serif;
       font-size: 10px;
       font-weight: bold;
-
-      letter-spacing: 0.03em;
     }
 
     .document-name {
       flex: 1;
 
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-
-      color: var(--black);
     }
 
     .document-format {
       display: block;
 
-      margin-top: 2px;
+      margin-top: 1px;
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: normal;
 
       color: #888888;
@@ -559,11 +500,11 @@
     }
 
     .document-arrow {
-      width: 42px;
-
-      font-size: 25px;
+      width: 40px;
 
       color: var(--red);
+
+      font-size: 23px;
 
       text-align: right;
 
@@ -571,105 +512,78 @@
     }
 
     .document:hover .document-arrow {
-      transform: translateX(6px);
+      transform: translateX(5px);
     }
 
 
-    /* =========================================================
-       SPECIAL ACCENT
-    ========================================================= */
-
-    .product-corner {
-      position: absolute;
-
-      top: 0;
-      right: 0;
-
-      width: 65px;
-      height: 65px;
-
-      border-top: 4px solid var(--red);
-      border-right: 4px solid var(--red);
-
-      opacity: 0.9;
-    }
-
-
-    /* =========================================================
+    /* =====================================================
        FOOTER
-    ========================================================= */
+    ===================================================== */
 
     footer {
-      background: #ededed;
+      background: #eeeeee;
 
-      border-top: 1px solid #d2d2d2;
+      border-top: 1px solid #d8d8d8;
     }
 
     .footer-inner {
       width: min(1380px, 92%);
       margin: auto;
 
-      padding: 65px 0 35px;
+      padding: 55px 0 35px;
 
       display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
 
-      grid-template-columns: 1.1fr 1.5fr 1fr;
-
-      gap: 60px;
+      gap: 50px;
     }
 
     .footer-brand img {
       width: 170px;
-      height: auto;
 
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .footer-title {
       position: relative;
 
-      font-family: "Eurostile SST", Arial, sans-serif;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
 
-      font-size: 14px;
+      font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: 13px;
 
       text-transform: uppercase;
-
-      margin-bottom: 22px;
-
-      padding-bottom: 12px;
     }
 
     .footer-title::after {
       content: "";
 
       position: absolute;
-
       left: 0;
       bottom: 0;
 
-      width: 38px;
-      height: 3px;
+      width: 35px;
+      height: 2px;
 
       background: var(--red);
     }
 
     .footer-text {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.8;
 
-      color: #555555;
+      color: #666666;
     }
 
     .footer-contact a {
       display: block;
 
-      font-size: 13px;
+      margin-bottom: 5px;
+
+      font-size: 12px;
 
       color: #333333;
-
-      margin-bottom: 7px;
-
-      transition: color 0.2s ease;
     }
 
     .footer-contact a:hover {
@@ -680,36 +594,33 @@
       width: min(1380px, 92%);
       margin: auto;
 
-      border-top: 1px solid #d1d1d1;
+      padding: 16px 0 20px;
 
-      padding: 18px 0 22px;
+      border-top: 1px solid #d2d2d2;
 
       display: flex;
       justify-content: space-between;
-      gap: 20px;
 
-      font-size: 11px;
+      font-size: 10px;
 
       color: #888888;
     }
 
 
-    /* =========================================================
-       RESPONSIVE — TABLET
-    ========================================================= */
+    /* =====================================================
+       TABLETTE
+    ===================================================== */
 
-    @media (max-width: 1000px) {
-
-      header {
-        height: auto;
-      }
+    @media (max-width: 900px) {
 
       .header-inner {
+        height: auto;
+
+        min-height: 80px;
+
         flex-wrap: wrap;
 
-        padding: 18px 0;
-
-        gap: 15px;
+        padding: 15px 0;
       }
 
       nav {
@@ -720,14 +631,12 @@
         justify-content: center;
 
         gap: 28px;
+
+        padding-top: 5px;
       }
 
       nav a {
-        padding: 8px 0;
-      }
-
-      nav a::after {
-        bottom: 0;
+        padding: 5px 0;
       }
 
       .language-switch {
@@ -739,14 +648,14 @@
       }
 
       .product-info {
-        padding: 60px 0 45px;
+        padding: 50px 0 40px;
 
         border-right: 0;
         border-bottom: 1px solid var(--border);
       }
 
       .documents {
-        padding: 45px 0 60px;
+        padding: 45px 0 55px;
       }
 
       .footer-inner {
@@ -759,111 +668,178 @@
     }
 
 
-    /* =========================================================
-       RESPONSIVE — MOBILE
-    ========================================================= */
+    /* =====================================================
+       TELEPHONE
+    ===================================================== */
 
     @media (max-width: 600px) {
 
+      header {
+        position: relative;
+      }
+
       .header-inner {
         width: 90%;
+
+        min-height: auto;
+
+        padding: 17px 0 14px;
       }
 
       .logo img {
         width: 145px;
       }
 
+      .language-switch {
+        margin-left: auto;
+
+        padding-left: 10px;
+      }
+
+      .language-switch button {
+        padding: 5px 6px;
+      }
+
       nav {
         justify-content: flex-start;
 
+        gap: 24px;
+
         overflow-x: auto;
 
-        gap: 22px;
-
+        padding-top: 12px;
         padding-bottom: 3px;
       }
 
       nav a {
         flex-shrink: 0;
 
-        font-size: 11px;
+        font-size: 10px;
       }
 
-      .language-switch {
-        padding-left: 12px;
-      }
 
-      .hero {
-        min-height: 420px;
+      /* HERO MOBILE */
+
+      .hero::before {
+        width: 4px;
       }
 
       .hero-inner {
         width: 90%;
-        padding: 60px 0;
+
+        padding: 58px 0 62px;
+      }
+
+      .hero-kicker {
+        font-size: 11px;
+
+        margin-bottom: 16px;
+      }
+
+      .hero-kicker::before {
+        width: 27px;
+        height: 2px;
       }
 
       .hero h1 {
-        font-size: 47px;
+        font-size: 44px;
+        line-height: 1.02;
       }
 
       .hero-description {
-        font-size: 15px;
+        margin-top: 22px;
+
+        font-size: 14px;
+        line-height: 1.7;
       }
+
+
+      /* INTRO MOBILE */
 
       .intro {
         width: 90%;
 
-        padding: 70px 0 45px;
+        padding: 65px 0 42px;
       }
+
+      .intro h2 {
+        font-size: 30px;
+      }
+
+
+      /* PRODUCTS MOBILE */
 
       .product-inner {
         width: 90%;
       }
 
       .product-info {
-        padding: 50px 0 40px;
+        padding: 45px 0 38px;
       }
 
       .product-number {
-        font-size: 55px;
+        font-size: 48px;
+
+        margin-bottom: 17px;
       }
 
       .product-name {
-        font-size: 39px;
+        font-size: 38px;
+
+        margin-bottom: 18px;
       }
 
-      .documents {
-        padding: 40px 0 50px;
-      }
-
-      .document {
-        min-height: 72px;
-      }
-
-      .pdf-icon {
-        width: 38px;
-        height: 38px;
-
-        margin-right: 14px;
-      }
-
-      .document-name {
+      .product-description {
         font-size: 13px;
       }
 
-      .document-arrow {
-        width: 30px;
-        font-size: 21px;
+      .documents {
+        padding: 38px 0 45px;
       }
+
+      .documents-title {
+        font-size: 12px;
+
+        margin-bottom: 18px;
+      }
+
+      .document {
+        min-height: 66px;
+      }
+
+      .pdf-icon {
+        width: 36px;
+        height: 36px;
+
+        margin-right: 13px;
+      }
+
+      .document-name {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .document-format {
+        font-size: 9px;
+      }
+
+      .document-arrow {
+        width: 28px;
+
+        font-size: 20px;
+      }
+
+
+      /* FOOTER MOBILE */
 
       .footer-inner {
         width: 90%;
 
         grid-template-columns: 1fr;
 
-        gap: 40px;
+        gap: 35px;
 
-        padding: 50px 0 30px;
+        padding: 45px 0 28px;
       }
 
       .footer-brand {
@@ -886,9 +862,9 @@
 <body>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        HEADER
-  ======================================================== -->
+  ===================================================== -->
 
   <header>
 
@@ -897,6 +873,7 @@
       <a href="#top" class="logo">
         <img src="logo-sst.png" alt="SST Microwelding">
       </a>
+
 
       <nav>
 
@@ -933,16 +910,14 @@
                 class="active"
                 onclick="changeLanguage('fr')">
 
-          <span class="flag">🇫🇷</span>
-          FR
+          <span class="flag">🇫🇷</span> FR
 
         </button>
 
         <button id="en-button"
                 onclick="changeLanguage('en')">
 
-          <span class="flag">🇬🇧</span>
-          EN
+          <span class="flag">🇬🇧</span> EN
 
         </button>
 
@@ -954,9 +929,9 @@
 
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        HERO
-  ======================================================== -->
+  ===================================================== -->
 
   <main id="top">
 
@@ -996,9 +971,9 @@
 
 
 
-    <!-- =====================================================
+    <!-- =================================================
          INTRO
-    ====================================================== -->
+    ================================================== -->
 
     <section class="intro" id="documentation">
 
@@ -1025,20 +1000,16 @@
 
 
 
-    <!-- =====================================================
-         PRODUCTS
-    ====================================================== -->
+    <!-- =================================================
+         PRODUITS
+    ================================================== -->
 
     <section class="products">
 
 
-      <!-- ===================================================
-           LASE ONE
-      ==================================================== -->
+      <!-- LASE ONE -->
 
       <article class="product" id="lase-one">
-
-        <div class="product-corner"></div>
 
         <div class="product-inner">
 
@@ -1064,7 +1035,6 @@
             <div class="product-marker"></div>
 
           </div>
-
 
 
           <div class="documents">
@@ -1106,7 +1076,6 @@
               </a>
 
 
-
               <a class="document"
                  href="Lase-One-en.pdf"
                  target="_blank">
@@ -1130,7 +1099,6 @@
                 </div>
 
               </a>
-
 
 
               <a class="document"
@@ -1168,13 +1136,9 @@
 
 
 
-      <!-- ===================================================
-           WS
-      ==================================================== -->
+      <!-- WS -->
 
       <article class="product" id="ws">
-
-        <div class="product-corner"></div>
 
         <div class="product-inner">
 
@@ -1200,7 +1164,6 @@
             <div class="product-marker"></div>
 
           </div>
-
 
 
           <div class="documents">
@@ -1242,7 +1205,6 @@
               </a>
 
 
-
               <a class="document"
                  href="WS-technique-fr.pdf"
                  target="_blank">
@@ -1268,7 +1230,6 @@
               </a>
 
 
-
               <a class="document"
                  href="WS-technocal-en.pdf"
                  target="_blank">
@@ -1292,7 +1253,6 @@
                 </div>
 
               </a>
-
 
 
               <a class="document"
@@ -1330,13 +1290,9 @@
 
 
 
-      <!-- ===================================================
-           CART
-      ==================================================== -->
+      <!-- CART -->
 
       <article class="product" id="cart">
-
-        <div class="product-corner"></div>
 
         <div class="product-inner">
 
@@ -1362,7 +1318,6 @@
             <div class="product-marker"></div>
 
           </div>
-
 
 
           <div class="documents">
@@ -1402,7 +1357,6 @@
                 </div>
 
               </a>
-
 
 
               <a class="document"
@@ -1445,9 +1399,9 @@
 
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        FOOTER
-  ======================================================== -->
+  ===================================================== -->
 
   <footer>
 
@@ -1459,29 +1413,21 @@
         <img src="logo-sst.png"
              alt="SST Microwelding">
 
-        <div class="footer-text">
+        <div class="footer-text"
+             data-fr="Micro-soudage laser de précision"
+             data-en="Precision laser micro-welding">
 
-          <span data-fr="Micro-soudage laser de précision"
-                data-en="Precision laser micro-welding">
-
-            Micro-soudage laser de précision
-
-          </span>
+          Micro-soudage laser de précision
 
         </div>
 
       </div>
 
 
-
       <div>
 
-        <div class="footer-title"
-             data-fr="SST Microwelding"
-             data-en="SST Microwelding">
-
+        <div class="footer-title">
           SST Microwelding
-
         </div>
 
         <div class="footer-text">
@@ -1495,7 +1441,6 @@
       </div>
 
 
-
       <div class="footer-contact">
 
         <div class="footer-title"
@@ -1505,7 +1450,6 @@
           Contact
 
         </div>
-
 
         <a href="mailto:info@sstmicrowelding.com">
           info@sstmicrowelding.com
@@ -1544,9 +1488,9 @@
 
 
 
-  <!-- =======================================================
-       LANGUAGE SCRIPT
-  ======================================================== -->
+  <!-- =====================================================
+       LANGUE
+  ===================================================== -->
 
   <script>
 
