@@ -139,8 +139,8 @@
         }
 
         .flag {
-            font-size: 16px;
-            margin-right: 2px;
+            font-size: 17px;
+            margin-right: 3px;
         }
 
         /* =========================
@@ -189,8 +189,7 @@
 
         .hero-description {
             max-width: 650px;
-            border-left: 2px solid #d71920;
-            padding-left: 20px;
+            padding-left: 0;
             font-size: 18px;
             line-height: 1.7;
             color: #555555;
@@ -456,7 +455,8 @@
 
         @media (max-width: 768px) {
 
-            /* Pas de trait rouge sous le header sur téléphone */
+            /* Trait rouge du header supprimé sur téléphone */
+
             .top-header {
                 border-bottom: none;
             }
@@ -479,21 +479,13 @@
                 gap: 20px;
             }
 
+            /* Onglets cachés sur téléphone */
+
             .navigation {
-                width: 100%;
-                flex-direction: column;
-                gap: 13px;
-                text-align: center;
-            }
-
-            .navigation a {
-                font-size: 13px;
-                padding: 2px 0;
-            }
-
-            .navigation a::after {
                 display: none;
             }
+
+            /* Drapeaux toujours visibles */
 
             .language-switch {
                 border-left: none;
@@ -504,13 +496,21 @@
                 width: 100%;
             }
 
+            .language-switch button {
+                font-size: 13px;
+            }
+
+            .flag {
+                font-size: 18px;
+            }
+
             .hero {
-                padding: 65px 20px 70px;
+                padding: 60px 20px 65px;
             }
 
             .hero-container::before {
                 width: 3px;
-                height: 65px;
+                height: 62px;
                 top: 3px;
             }
 
@@ -519,14 +519,16 @@
             }
 
             .hero h1 {
-                font-size: 38px;
-                line-height: 1.05;
+                font-size: 34px;
+                line-height: 1.08;
+                letter-spacing: 0;
                 margin-bottom: 23px;
             }
 
             .hero-description {
+                max-width: 100%;
                 font-size: 16px;
-                padding-left: 15px;
+                line-height: 1.65;
             }
 
             .intro {
@@ -535,6 +537,12 @@
 
             .intro h2 {
                 font-size: 29px;
+            }
+
+            /* Le petit trait directement sous Documentation produits est supprimé */
+
+            .intro-line {
+                display: none;
             }
 
             .products {
@@ -610,12 +618,16 @@
         <div class="header-container">
 
             <a href="#" class="logo-link">
-                <img src="logo-sst.png" alt="SST Microwelding" class="logo">
+                <img
+                    src="logo-sst.png"
+                    alt="SST Microwelding"
+                    class="logo">
             </a>
 
             <div class="header-right">
 
                 <nav class="navigation">
+
                     <a href="#documentation">
                         Documentation
                     </a>
@@ -631,6 +643,7 @@
                     <a href="#cart">
                         CART
                     </a>
+
                 </nav>
 
                 <div class="language-switch">
@@ -639,7 +652,9 @@
                         id="fr-button"
                         class="active"
                         onclick="changeLanguage('fr')">
+
                         <span class="flag">🇫🇷</span> FR
+
                     </button>
 
                     <span>|</span>
@@ -647,7 +662,9 @@
                     <button
                         id="en-button"
                         onclick="changeLanguage('en')">
+
                         <span class="flag">🇬🇧</span> EN
+
                     </button>
 
                 </div>
@@ -663,7 +680,9 @@
          HERO
     ========================= -->
 
-    <section class="hero" id="documentation">
+    <section
+        class="hero"
+        id="documentation">
 
         <div class="hero-container">
 
@@ -672,15 +691,19 @@
                 <h1
                     data-fr="Documentation<br><span>technique</span>"
                     data-en="Technical<br><span>documentation</span>">
+
                     Documentation<br>
                     <span>technique</span>
+
                 </h1>
 
                 <p
                     class="hero-description"
                     data-fr="Retrouvez l'ensemble de la documentation technique de nos solutions de micro-soudage laser."
                     data-en="Find all the technical documentation for our laser micro-welding solutions.">
+
                     Retrouvez l'ensemble de la documentation technique de nos solutions de micro-soudage laser.
+
                 </p>
 
             </div>
@@ -696,16 +719,21 @@
 
     <section class="intro">
 
-        <div class="intro-small"
-             data-fr="Nos solutions"
-             data-en="Our solutions">
+        <div
+            class="intro-small"
+            data-fr="Nos solutions"
+            data-en="Our solutions">
+
             Nos solutions
+
         </div>
 
         <h2
             data-fr="Documentation produits"
             data-en="Product documentation">
+
             Documentation produits
+
         </h2>
 
         <div class="intro-line"></div>
@@ -722,7 +750,9 @@
 
         <!-- LASE ONE -->
 
-        <section class="product" id="lase-one">
+        <section
+            class="product"
+            id="lase-one">
 
             <div class="product-info">
 
@@ -737,55 +767,81 @@
                 <p
                     data-fr="Documentation technique et informations relatives au système de micro-soudage laser Lase One."
                     data-en="Technical documentation and information relating to the Lase One laser micro-welding system.">
+
                     Documentation technique et informations relatives au système de micro-soudage laser Lase One.
+
                 </p>
 
             </div>
 
             <div class="product-documents">
 
-                <div class="documents-title"
-                     data-fr="Documents disponibles"
-                     data-en="Available documents">
+                <div
+                    class="documents-title"
+                    data-fr="Documents disponibles"
+                    data-en="Available documents">
+
                     Documents disponibles
+
                 </div>
 
 
-                <a class="document" href="pdf/Lase-One-fr.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/Lase-One-fr.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         Lase One — Français
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/Lase-One-en.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/Lase-One-en.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         Lase One — English
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/Lase-One-it.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/Lase-One-it.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         Lase One — Italiano
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
@@ -796,7 +852,9 @@
 
         <!-- WS -->
 
-        <section class="product" id="ws">
+        <section
+            class="product"
+            id="ws">
 
             <div class="product-info">
 
@@ -811,68 +869,101 @@
                 <p
                     data-fr="Retrouvez les documents techniques et les informations relatives aux solutions WS."
                     data-en="Find technical documents and information relating to WS solutions.">
+
                     Retrouvez les documents techniques et les informations relatives aux solutions WS.
+
                 </p>
 
             </div>
 
             <div class="product-documents">
 
-                <div class="documents-title"
-                     data-fr="Documents disponibles"
-                     data-en="Available documents">
+                <div
+                    class="documents-title"
+                    data-fr="Documents disponibles"
+                    data-en="Available documents">
+
                     Documents disponibles
+
                 </div>
 
 
-                <a class="document" href="pdf/WS-fr-en.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/WS-fr-en.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         WS — Français / English
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/WS-technique-fr.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/WS-technique-fr.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         WS — Documentation technique française
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/WS-technocal-en.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/WS-technocal-en.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         WS — Technical documentation English
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/Reset%20WS.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/Reset%20WS.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         WS — Reset
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
@@ -883,7 +974,9 @@
 
         <!-- CART -->
 
-        <section class="product" id="cart">
+        <section
+            class="product"
+            id="cart">
 
             <div class="product-info">
 
@@ -898,42 +991,61 @@
                 <p
                     data-fr="Documentation technique et informations relatives à nos solutions CART."
                     data-en="Technical documentation and information relating to our CART solutions.">
+
                     Documentation technique et informations relatives à nos solutions CART.
+
                 </p>
 
             </div>
 
             <div class="product-documents">
 
-                <div class="documents-title"
-                     data-fr="Documents disponibles"
-                     data-en="Available documents">
+                <div
+                    class="documents-title"
+                    data-fr="Documents disponibles"
+                    data-en="Available documents">
+
                     Documents disponibles
+
                 </div>
 
 
-                <a class="document" href="pdf/Cart-fr-en.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/Cart-fr-en.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         CART — Français / English
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
 
-                <a class="document" href="pdf/CART-DB.pdf" target="_blank">
+                <a
+                    class="document"
+                    href="pdf/CART-DB.pdf"
+                    target="_blank">
 
-                    <div class="pdf">PDF</div>
+                    <div class="pdf">
+                        PDF
+                    </div>
 
                     <div class="document-name">
                         CART — Documentation technique
                     </div>
 
-                    <div class="arrow">→</div>
+                    <div class="arrow">
+                        →
+                    </div>
 
                 </a>
 
@@ -963,9 +1075,7 @@
 
             <div class="footer-column">
 
-                <h4
-                    data-fr="SST Microwelding"
-                    data-en="SST Microwelding">
+                <h4>
                     SST Microwelding
                 </h4>
 
@@ -983,17 +1093,25 @@
                 <h4
                     data-fr="Contact"
                     data-en="Contact">
+
                     Contact
+
                 </h4>
 
                 <p>
+
                     <a href="mailto:info@sstmicrowelding.com">
                         info@sstmicrowelding.com
                     </a>
+
                     <br>
+
                     +33 (0)5 56 29 51 60
+
                     <br>
+
                     Fax +33 (0)5 56 29 51 69
+
                 </p>
 
             </div>
