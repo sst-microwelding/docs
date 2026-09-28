@@ -468,6 +468,59 @@
 
 
     /* =========================================================
+       VISIBILITÉ DES DOCUMENTS SELON LA LANGUE
+    ========================================================= */
+
+    .lang-fr,
+    .lang-en,
+    .lang-it {
+      display: none;
+    }
+
+    body[data-language="fr"] .lang-fr {
+      display: flex;
+    }
+
+    body[data-language="en"] .lang-en {
+      display: flex;
+    }
+
+    body[data-language="it"] .lang-it {
+      display: flex;
+    }
+
+    p.lang-fr,
+    p.lang-en,
+    p.lang-it,
+    div.lang-fr,
+    div.lang-en,
+    div.lang-it {
+      display: none;
+    }
+
+    body[data-language="fr"] p.lang-fr,
+    body[data-language="fr"] div.lang-fr {
+      display: block;
+    }
+
+    body[data-language="en"] p.lang-en,
+    body[data-language="en"] div.lang-en {
+      display: block;
+    }
+
+    body[data-language="it"] p.lang-it,
+    body[data-language="it"] div.lang-it {
+      display: block;
+    }
+
+    body[data-language="fr"] .document.lang-fr,
+    body[data-language="en"] .document.lang-en,
+    body[data-language="it"] .document.lang-it {
+      display: flex;
+    }
+
+
+    /* =========================================================
        FOOTER
     ========================================================= */
 
@@ -739,7 +792,7 @@
 </head>
 
 
-<body>
+<body data-language="fr">
 
 
   <!-- ========================================================
@@ -763,19 +816,11 @@
 
       <nav class="navigation">
 
-        <a
-          href="#documentation"
-          data-fr="Documentation"
-          data-en="Documentation"
-        >
+        <a href="#documentation">
           Documentation
         </a>
 
-        <a
-          href="#lase-one"
-          data-fr="Lase One"
-          data-en="Lase One"
-        >
+        <a href="#lase-one">
           Lase One
         </a>
 
@@ -808,6 +853,15 @@
             EN
           </button>
 
+          <button
+            class="language-button"
+            id="it-button"
+            onclick="changeLanguage('it')"
+          >
+            <span class="flag">🇮🇹</span>
+            IT
+          </button>
+
         </div>
 
       </nav>
@@ -826,21 +880,32 @@
 
     <div class="hero-container">
 
-      <h1
-        data-fr="Documentation<br><span>technique</span>"
-        data-en="Technical<br><span>documentation</span>"
-      >
+      <h1 class="lang-fr">
         Documentation<br>
         <span>technique</span>
       </h1>
 
+      <h1 class="lang-en">
+        Technical<br>
+        <span>documentation</span>
+      </h1>
 
-      <p
-        class="hero-description"
-        data-fr="Retrouvez les manuels et documents techniques de vos équipements SST Microwelding."
-        data-en="Find the manuals and technical documentation for your SST Microwelding equipment."
-      >
+      <h1 class="lang-it">
+        Documentazione<br>
+        <span>tecnica</span>
+      </h1>
+
+
+      <p class="hero-description lang-fr">
         Retrouvez les manuels et documents techniques de vos équipements SST Microwelding.
+      </p>
+
+      <p class="hero-description lang-en">
+        Find the manuals and technical documentation for your SST Microwelding equipment.
+      </p>
+
+      <p class="hero-description lang-it">
+        Trova i manuali e la documentazione tecnica delle apparecchiature SST Microwelding.
       </p>
 
     </div>
@@ -858,21 +923,29 @@
     id="documentation"
   >
 
-    <div
-      class="section-label"
-      data-fr="Nos solutions"
-      data-en="Our solutions"
-    >
+    <div class="section-label lang-fr">
       Nos solutions
     </div>
 
+    <div class="section-label lang-en">
+      Our solutions
+    </div>
 
-    <h2
-      class="section-title"
-      data-fr="Documentation produits"
-      data-en="Product documentation"
-    >
+    <div class="section-label lang-it">
+      Le nostre soluzioni
+    </div>
+
+
+    <h2 class="section-title lang-fr">
       Documentation produits
+    </h2>
+
+    <h2 class="section-title lang-en">
+      Product documentation
+    </h2>
+
+    <h2 class="section-title lang-it">
+      Documentazione prodotti
     </h2>
 
 
@@ -910,12 +983,16 @@
         </h2>
 
 
-        <p
-          class="product-description"
-          data-fr="Assemblage fin et rechargement précis pour les opérations délicates de microsoudure."
-          data-en="Fine assembly and precise repair for demanding microwelding applications."
-        >
+        <p class="product-description lang-fr">
           Assemblage fin et rechargement précis pour les opérations délicates de microsoudure.
+        </p>
+
+        <p class="product-description lang-en">
+          Fine assembly and precise repair for demanding microwelding applications.
+        </p>
+
+        <p class="product-description lang-it">
+          Assemblaggio fine e riparazione precisa per applicazioni di microsaldatura.
         </p>
 
       </div>
@@ -923,19 +1000,24 @@
 
       <div class="product-documents">
 
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
+        <div class="documents-title lang-fr">
           Documents disponibles
         </div>
 
+        <div class="documents-title lang-en">
+          Available documents
+        </div>
 
+        <div class="documents-title lang-it">
+          Documenti disponibili
+        </div>
+
+
+        <!-- FR -->
         <a
           href="pdf/Lase-One-fr.pdf"
           target="_blank"
-          class="document"
+          class="document lang-fr"
         >
 
           <div class="document-left">
@@ -947,15 +1029,11 @@
             <div>
 
               <div class="document-name">
-                🇫🇷 Français
+                Lase One — Manuel technique
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Manuel technique
+              <div class="document-subtitle">
+                Documentation technique
               </div>
 
             </div>
@@ -969,10 +1047,11 @@
         </a>
 
 
+        <!-- EN -->
         <a
           href="pdf/Lase-One-en.pdf"
           target="_blank"
-          class="document"
+          class="document lang-en"
         >
 
           <div class="document-left">
@@ -984,15 +1063,11 @@
             <div>
 
               <div class="document-name">
-                🇬🇧 English
+                Lase One — Technical manual
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Technical manual
+              <div class="document-subtitle">
+                Technical documentation
               </div>
 
             </div>
@@ -1006,10 +1081,11 @@
         </a>
 
 
+        <!-- IT -->
         <a
           href="pdf/Lase-One-it.pdf"
           target="_blank"
-          class="document"
+          class="document lang-it"
         >
 
           <div class="document-left">
@@ -1021,15 +1097,11 @@
             <div>
 
               <div class="document-name">
-                🇮🇹 Italiano
+                Lase One — Manuale tecnico
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Manuale tecnico
+              <div class="document-subtitle">
+                Documentazione tecnica
               </div>
 
             </div>
@@ -1069,12 +1141,16 @@
         </h2>
 
 
-        <p
-          class="product-description"
-          data-fr="Postes de soudage dédiés à la réparation des outillages par rechargement."
-          data-en="Welding systems dedicated to tooling repair and precision build-up."
-        >
+        <p class="product-description lang-fr">
           Postes de soudage dédiés à la réparation des outillages par rechargement.
+        </p>
+
+        <p class="product-description lang-en">
+          Welding systems dedicated to tooling repair and precision build-up.
+        </p>
+
+        <p class="product-description lang-it">
+          Sistemi di saldatura dedicati alla riparazione degli utensili e al riporto di precisione.
         </p>
 
       </div>
@@ -1082,19 +1158,27 @@
 
       <div class="product-documents">
 
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
+        <div class="documents-title lang-fr">
           Documents disponibles
         </div>
 
+        <div class="documents-title lang-en">
+          Available documents
+        </div>
+
+        <div class="documents-title lang-it">
+          Documenti disponibili
+        </div>
+
+
+        <!-- =========================
+             FRANÇAIS
+        ========================== -->
 
         <a
           href="pdf/WS-fr-en.pdf"
           target="_blank"
-          class="document"
+          class="document lang-fr"
         >
 
           <div class="document-left">
@@ -1106,15 +1190,11 @@
             <div>
 
               <div class="document-name">
-                🇫🇷 🇬🇧 Français / English
+                WS — Documentation bilingue
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Documentation bilingue"
-                data-en="Bilingual documentation"
-              >
-                Documentation bilingue
+              <div class="document-subtitle">
+                Français / English
               </div>
 
             </div>
@@ -1131,7 +1211,7 @@
         <a
           href="pdf/WS-technique-fr.pdf"
           target="_blank"
-          class="document"
+          class="document lang-fr"
         >
 
           <div class="document-left">
@@ -1143,15 +1223,48 @@
             <div>
 
               <div class="document-name">
-                🇫🇷 Technique
+                WS — Documentation technique
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Documentation technique"
-                data-en="Technical documentation"
-              >
-                Documentation technique
+              <div class="document-subtitle">
+                Français
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <!-- =========================
+             ENGLISH
+        ========================== -->
+
+        <a
+          href="pdf/WS-fr-en.pdf"
+          target="_blank"
+          class="document lang-en"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                WS — Bilingual documentation
+              </div>
+
+              <div class="document-subtitle">
+                Français / English
               </div>
 
             </div>
@@ -1168,7 +1281,7 @@
         <a
           href="pdf/WS-technocal-en.pdf"
           target="_blank"
-          class="document"
+          class="document lang-en"
         >
 
           <div class="document-left">
@@ -1180,15 +1293,121 @@
             <div>
 
               <div class="document-name">
-                🇬🇧 Technical
+                WS — Technical documentation
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Documentation technique"
-                data-en="Technical documentation"
-              >
-                Technical documentation
+              <div class="document-subtitle">
+                English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <!-- =========================
+             ITALIEN
+             Pas de version IT pour WS
+             -> anglais
+        ========================== -->
+
+        <a
+          href="pdf/WS-fr-en.pdf"
+          target="_blank"
+          class="document lang-it"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                WS — Documentazione bilingue
+              </div>
+
+              <div class="document-subtitle">
+                Français / English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          href="pdf/WS-technocal-en.pdf"
+          target="_blank"
+          class="document lang-it"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                WS — Documentazione tecnica
+              </div>
+
+              <div class="document-subtitle">
+                English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <!-- =========================
+             RESET WS
+             Disponible uniquement en anglais
+        ========================== -->
+
+        <a
+          href="pdf/Reset%20WS.pdf"
+          target="_blank"
+          class="document lang-fr"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                WS — Procédure de réinitialisation
+              </div>
+
+              <div class="document-subtitle">
+                English
               </div>
 
             </div>
@@ -1205,7 +1424,7 @@
         <a
           href="pdf/Reset%20WS.pdf"
           target="_blank"
-          class="document"
+          class="document lang-en"
         >
 
           <div class="document-left">
@@ -1217,15 +1436,44 @@
             <div>
 
               <div class="document-name">
-                Reset WS
+                WS — Reset procedure
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Procédure de réinitialisation"
-                data-en="Reset procedure"
-              >
-                Procédure de réinitialisation
+              <div class="document-subtitle">
+                English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          href="pdf/Reset%20WS.pdf"
+          target="_blank"
+          class="document lang-it"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                WS — Procedura di reset
+              </div>
+
+              <div class="document-subtitle">
+                English
               </div>
 
             </div>
@@ -1265,12 +1513,16 @@
         </h2>
 
 
-        <p
-          class="product-description"
-          data-fr="Chariot électrique conçu pour accompagner les équipements de microsoudure SST."
-          data-en="Electric trolley designed to support SST microwelding equipment."
-        >
+        <p class="product-description lang-fr">
           Chariot électrique conçu pour accompagner les équipements de microsoudure SST.
+        </p>
+
+        <p class="product-description lang-en">
+          Electric trolley designed to support SST microwelding equipment.
+        </p>
+
+        <p class="product-description lang-it">
+          Carrello elettrico progettato per accompagnare le apparecchiature di microsaldatura SST.
         </p>
 
       </div>
@@ -1278,19 +1530,24 @@
 
       <div class="product-documents">
 
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
+        <div class="documents-title lang-fr">
           Documents disponibles
         </div>
 
+        <div class="documents-title lang-en">
+          Available documents
+        </div>
 
+        <div class="documents-title lang-it">
+          Documenti disponibili
+        </div>
+
+
+        <!-- FR -->
         <a
           href="pdf/Cart-fr-en.pdf"
           target="_blank"
-          class="document"
+          class="document lang-fr"
         >
 
           <div class="document-left">
@@ -1302,15 +1559,11 @@
             <div>
 
               <div class="document-name">
-                🇫🇷 🇬🇧 Français / English
+                CART — Documentation produit
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Documentation bilingue"
-                data-en="Bilingual documentation"
-              >
-                Documentation bilingue
+              <div class="document-subtitle">
+                Français / English
               </div>
 
             </div>
@@ -1327,7 +1580,7 @@
         <a
           href="pdf/CART-DB.pdf"
           target="_blank"
-          class="document"
+          class="document lang-fr"
         >
 
           <div class="document-left">
@@ -1339,15 +1592,145 @@
             <div>
 
               <div class="document-name">
-                CART — Documentation
+                CART-DB — Documentation technique
               </div>
 
-              <div
-                class="document-subtitle"
-                data-fr="Document technique"
-                data-en="Technical document"
-              >
-                Document technique
+              <div class="document-subtitle">
+                Français
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <!-- EN -->
+        <a
+          href="pdf/Cart-fr-en.pdf"
+          target="_blank"
+          class="document lang-en"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                CART — Product documentation
+              </div>
+
+              <div class="document-subtitle">
+                Français / English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          href="pdf/CART-DB.pdf"
+          target="_blank"
+          class="document lang-en"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                CART-DB — Technical documentation
+              </div>
+
+              <div class="document-subtitle">
+                English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <!-- IT -->
+        <a
+          href="pdf/Cart-fr-en.pdf"
+          target="_blank"
+          class="document lang-it"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                CART — Documentazione prodotto
+              </div>
+
+              <div class="document-subtitle">
+                Français / English
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="document-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          href="pdf/CART-DB.pdf"
+          target="_blank"
+          class="document lang-it"
+        >
+
+          <div class="document-left">
+
+            <div class="pdf">
+              PDF
+            </div>
+
+            <div>
+
+              <div class="document-name">
+                CART-DB — Documentazione tecnica
+              </div>
+
+              <div class="document-subtitle">
+                English
               </div>
 
             </div>
@@ -1390,11 +1773,7 @@
 
       <div>
 
-        <div
-          class="footer-title"
-          data-fr="SST Microwelding"
-          data-en="SST Microwelding"
-        >
+        <div class="footer-title">
           SST Microwelding
         </div>
 
@@ -1412,12 +1791,16 @@
 
       <div>
 
-        <div
-          class="footer-title"
-          data-fr="Contact"
-          data-en="Contact"
-        >
+        <div class="footer-title lang-fr">
           Contact
+        </div>
+
+        <div class="footer-title lang-en">
+          Contact
+        </div>
+
+        <div class="footer-title lang-it">
+          Contatti
         </div>
 
 
@@ -1441,12 +1824,20 @@
     </div>
 
 
-    <div
-      class="footer-bottom"
-      data-fr="© SST Microwelding — Documentation technique"
-      data-en="© SST Microwelding — Technical documentation"
-    >
-      © SST Microwelding — Documentation technique
+    <div class="footer-bottom">
+
+      <span class="lang-fr">
+        © SST Microwelding — Documentation technique
+      </span>
+
+      <span class="lang-en">
+        © SST Microwelding — Technical documentation
+      </span>
+
+      <span class="lang-it">
+        © SST Microwelding — Documentazione tecnica
+      </span>
+
     </div>
 
   </footer>
@@ -1461,16 +1852,10 @@
 
     function changeLanguage(language) {
 
-      const elements =
-        document.querySelectorAll("[data-fr][data-en]");
-
-
-      elements.forEach(function(element) {
-
-        element.innerHTML =
-          element.getAttribute("data-" + language);
-
-      });
+      document.body.setAttribute(
+        "data-language",
+        language
+      );
 
 
       document.documentElement.lang =
@@ -1495,6 +1880,15 @@
         );
 
 
+      document
+        .getElementById("it-button")
+        .classList
+        .toggle(
+          "active",
+          language === "it"
+        );
+
+
       localStorage.setItem(
         "sst-language",
         language
@@ -1507,7 +1901,19 @@
       localStorage.getItem("sst-language") || "fr";
 
 
-    changeLanguage(savedLanguage);
+    if (
+      savedLanguage === "fr" ||
+      savedLanguage === "en" ||
+      savedLanguage === "it"
+    ) {
+
+      changeLanguage(savedLanguage);
+
+    } else {
+
+      changeLanguage("fr");
+
+    }
 
   </script>
 
