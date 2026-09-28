@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SST Microwelding — Documentation</title>
+  <title>SST Microwelding — Documentation technique</title>
 
   <style>
 
     /* =========================================================
-       POLICES SST
+       FONTS
     ========================================================= */
 
     @font-face {
@@ -30,13 +30,31 @@
 
 
     /* =========================================================
-       BASE
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --red: #e30613;
+      --red-dark: #bd000b;
+      --black: #111111;
+      --dark: #1a1a1a;
+      --gray-dark: #555555;
+      --gray: #777777;
+      --gray-light: #eeeeee;
+      --gray-soft: #f5f5f5;
+      --white: #ffffff;
+      --border: #dedede;
+    }
+
+
+    /* =========================================================
+       RESET
     ========================================================= */
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -44,10 +62,10 @@
     }
 
     body {
-      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.5;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
     }
 
     a {
@@ -60,16 +78,24 @@
        HEADER
     ========================================================= */
 
-    .top-header {
-      width: 100%;
-      background: #fff;
-      border-bottom: 1px solid #eeeeee;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 88px;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--white);
+
+      border-bottom: 1px solid #d8d8d8;
     }
 
-    .header-container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 22px 30px;
+    .header-inner {
+      width: min(1380px, 92%);
+      margin: auto;
 
       display: flex;
       align-items: center;
@@ -78,54 +104,53 @@
     }
 
     .logo {
-      display: block;
-      width: auto;
-      max-width: 245px;
-      max-height: 72px;
-    }
-
-    .navigation {
       display: flex;
       align-items: center;
-      gap: 38px;
     }
 
-    .navigation a {
+    .logo img {
+      width: 175px;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      margin-left: auto;
+    }
+
+    nav a {
       position: relative;
 
       font-family: "Eurostile SST", Arial, sans-serif;
-
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-
-      letter-spacing: 0.8px;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
 
-      color: #333;
+      color: var(--black);
 
-      transition: color 0.2s ease;
+      padding: 31px 0;
     }
 
-    .navigation a::after {
+    nav a::after {
       content: "";
 
       position: absolute;
       left: 0;
-      bottom: -8px;
+      bottom: 21px;
 
       width: 0;
-      height: 2px;
+      height: 3px;
 
-      background: #e30613;
+      background: var(--red);
 
-      transition: width 0.2s ease;
+      transition: width 0.25s ease;
     }
 
-    .navigation a:hover {
-      color: #e30613;
-    }
-
-    .navigation a:hover::after {
+    nav a:hover::after {
       width: 100%;
     }
 
@@ -137,41 +162,44 @@
     .language-switch {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
 
-      margin-left: 10px;
+      border-left: 1px solid #d5d5d5;
+
       padding-left: 22px;
-
-      border-left: 1px solid #ddd;
     }
 
-    .language-button {
-      border: none;
+    .language-switch button {
+      border: 0;
       background: transparent;
-
-      padding: 7px 8px;
 
       cursor: pointer;
 
-      color: #777;
-
+      font-family: "Eurostile SST", Arial, sans-serif;
       font-size: 12px;
-      font-weight: 700;
 
-      transition: all 0.2s ease;
+      padding: 7px 8px;
+
+      opacity: 0.45;
+
+      transition:
+        opacity 0.2s ease,
+        background 0.2s ease;
     }
 
-    .language-button:hover {
-      color: #e30613;
+    .language-switch button:hover {
+      opacity: 0.8;
     }
 
-    .language-button.active {
-      color: #e30613;
+    .language-switch button.active {
+      opacity: 1;
+      background: var(--gray-soft);
     }
 
     .flag {
-      font-size: 17px;
-      margin-right: 4px;
+      font-size: 18px;
+      margin-right: 3px;
+      vertical-align: middle;
     }
 
 
@@ -180,62 +208,118 @@
     ========================================================= */
 
     .hero {
-      background: #f5f5f5;
+      position: relative;
 
-      padding: 105px 30px 110px;
+      min-height: 470px;
 
-      border-bottom: 1px solid #e8e8e8;
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          #f0f0f0 0%,
+          #f7f7f7 55%,
+          #ffffff 100%
+        );
+
+      border-bottom: 1px solid #dedede;
     }
 
-    .hero-container {
-      max-width: 1180px;
-      margin: 0 auto;
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 9px;
+
+      background: var(--red);
     }
 
-    .hero-small-title {
+    .hero::after {
+      content: "SST";
+
+      position: absolute;
+
+      right: 4%;
+      bottom: -80px;
+
       font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: 260px;
+      line-height: 1;
 
-      color: #e30613;
+      color: rgba(0, 0, 0, 0.025);
 
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: min(1380px, 92%);
+      margin: auto;
+
+      position: relative;
+      z-index: 2;
+
+      padding: 75px 0;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 24px;
+
+      font-family: "Eurostile SST", Arial, sans-serif;
       font-size: 14px;
-      font-weight: 400;
-
-      letter-spacing: 1.5px;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
 
-      margin-bottom: 20px;
+      color: var(--red);
+    }
+
+    .hero-kicker::before {
+      content: "";
+
+      display: block;
+
+      width: 42px;
+      height: 3px;
+
+      background: var(--red);
     }
 
     .hero h1 {
       max-width: 950px;
 
       font-family: "Eurostile SST", Arial, sans-serif;
-
-      font-size: 58px;
-      line-height: 1.08;
-
       font-weight: 400;
 
-      letter-spacing: 0.2px;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.98;
 
       text-transform: uppercase;
-
-      color: #222;
+      letter-spacing: -0.035em;
     }
 
     .hero h1 span {
-      color: #e30613;
+      color: var(--red);
     }
 
     .hero-description {
-      max-width: 720px;
+      max-width: 680px;
 
-      margin-top: 30px;
+      margin-top: 32px;
 
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 17px;
+      line-height: 1.8;
 
-      color: #666;
+      color: #555555;
     }
 
 
@@ -244,224 +328,270 @@
     ========================================================= */
 
     .intro {
-      max-width: 1180px;
-      margin: 0 auto;
+      width: min(1380px, 92%);
+      margin: auto;
 
-      padding: 85px 30px 45px;
+      padding: 105px 0 65px;
     }
 
     .section-label {
       font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: 12px;
 
-      color: #e30613;
-
-      font-size: 13px;
-      font-weight: 400;
-
-      letter-spacing: 1.5px;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
 
-      margin-bottom: 13px;
+      color: var(--red);
+
+      margin-bottom: 14px;
     }
 
-    .section-title {
+    .intro h2 {
       font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
 
-      font-size: 38px;
       font-weight: 400;
 
-      letter-spacing: 0.2px;
-
       text-transform: uppercase;
-
-      color: #222;
     }
 
-    .section-line {
-      width: 55px;
-      height: 3px;
+    .intro-line {
+      width: 70px;
+      height: 4px;
 
-      background: #e30613;
+      background: var(--red);
 
-      margin-top: 22px;
+      margin-top: 27px;
     }
 
 
     /* =========================================================
-       PRODUCTS
+       PRODUCT SECTIONS
     ========================================================= */
 
     .products {
-      max-width: 1180px;
-      margin: 0 auto;
-
-      padding: 30px 30px 100px;
+      border-top: 1px solid var(--border);
     }
 
     .product {
+      position: relative;
+
+      width: 100%;
+
+      border-bottom: 1px solid var(--border);
+
+      background: var(--white);
+    }
+
+    .product:nth-child(even) {
+      background: #f5f5f5;
+    }
+
+    .product-inner {
+      width: min(1380px, 92%);
+      margin: auto;
+
       display: grid;
+      grid-template-columns: 39% 61%;
 
-      grid-template-columns: 38% 62%;
-
-      min-height: 320px;
-
-      margin-bottom: 30px;
-
-      background: #fff;
-
-      border-top: 1px solid #e2e2e2;
-      border-bottom: 1px solid #e2e2e2;
+      min-height: 430px;
     }
 
 
-    /* PRODUCT LEFT */
+    /* =========================================================
+       PRODUCT INFO
+    ========================================================= */
 
     .product-info {
-      padding: 48px 45px 48px 0;
+      position: relative;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 75px 70px 75px 0;
+
+      border-right: 1px solid var(--border);
     }
 
     .product-number {
       font-family: "Eurostile SST", Arial, sans-serif;
+      font-size: 72px;
+      line-height: 1;
 
-      color: #e30613;
+      color: var(--red);
 
-      font-size: 13px;
-      font-weight: 400;
+      margin-bottom: 28px;
 
-      letter-spacing: 1.5px;
-
-      margin-bottom: 15px;
+      opacity: 0.95;
     }
 
     .product-name {
       font-family: "Eurostile SST", Arial, sans-serif;
 
-      font-size: 38px;
-      font-weight: 400;
-
-      letter-spacing: 0.2px;
+      font-size: clamp(35px, 4vw, 58px);
+      line-height: 1;
 
       text-transform: uppercase;
 
-      color: #222;
-
-      margin-bottom: 14px;
+      margin-bottom: 25px;
     }
 
     .product-description {
-      max-width: 360px;
+      max-width: 390px;
 
-      color: #777;
+      font-size: 15px;
+      line-height: 1.75;
 
-      font-size: 16px;
-      line-height: 1.7;
+      color: var(--gray-dark);
+    }
+
+    .product-marker {
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 80px;
+      height: 5px;
+
+      background: var(--red);
     }
 
 
-    /* PRODUCT DOCUMENTATION */
+    /* =========================================================
+       DOCUMENTS
+    ========================================================= */
 
-    .product-documents {
-      background: #f7f7f7;
-
-      padding: 38px 45px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .documents {
+      padding: 75px 0 75px 70px;
     }
 
     .documents-title {
-      font-family: "Eurostile SST", Arial, sans-serif;
-
-      font-size: 12px;
-      font-weight: 400;
-
-      letter-spacing: 1.2px;
-
-      text-transform: uppercase;
-
-      color: #555;
-
-      margin-bottom: 17px;
-    }
-
-
-    /* DOCUMENT ROW */
-
-    .document {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 15px;
 
-      min-height: 60px;
+      font-family: "Eurostile SST", Arial, sans-serif;
 
-      border-top: 1px solid #dedede;
+      font-size: 15px;
+      text-transform: uppercase;
 
-      transition: all 0.2s ease;
+      letter-spacing: 0.06em;
+
+      margin-bottom: 25px;
     }
 
-    .document:last-child {
-      border-bottom: 1px solid #dedede;
+    .documents-title::before {
+      content: "";
+
+      width: 5px;
+      height: 22px;
+
+      background: var(--red);
+    }
+
+    .document-list {
+      border-top: 1px solid #cfcfcf;
+    }
+
+    .document {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      min-height: 78px;
+
+      border-bottom: 1px solid #cfcfcf;
+
+      transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
     }
 
     .document:hover {
-      padding-left: 8px;
+      background: rgba(227, 6, 19, 0.045);
+      padding-left: 10px;
     }
 
-    .document-left {
-      display: flex;
-      align-items: center;
+    .pdf-icon {
+      width: 42px;
+      height: 42px;
 
-      gap: 15px;
-    }
-
-    .pdf {
-      width: 37px;
-      height: 37px;
+      flex-shrink: 0;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background: #e30613;
+      margin-right: 20px;
 
-      color: #fff;
+      background: var(--red);
 
-      font-size: 9px;
-      font-weight: 800;
+      color: var(--white);
 
-      letter-spacing: 0.5px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+
+      letter-spacing: 0.03em;
     }
 
     .document-name {
-      font-size: 14px;
-      font-weight: 700;
+      flex: 1;
 
-      color: #333;
+      font-size: 15px;
+      font-weight: 600;
+
+      color: var(--black);
     }
 
-    .document-subtitle {
-      font-size: 12px;
-
-      color: #888;
+    .document-format {
+      display: block;
 
       margin-top: 2px;
+
+      font-size: 11px;
+      font-weight: normal;
+
+      color: #888888;
+
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .document-arrow {
-      color: #e30613;
+      width: 42px;
 
-      font-size: 22px;
+      font-size: 25px;
+
+      color: var(--red);
+
+      text-align: right;
 
       transition: transform 0.2s ease;
     }
 
     .document:hover .document-arrow {
-      transform: translateX(5px);
+      transform: translateX(6px);
+    }
+
+
+    /* =========================================================
+       SPECIAL ACCENT
+    ========================================================= */
+
+    .product-corner {
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      width: 65px;
+      height: 65px;
+
+      border-top: 4px solid var(--red);
+      border-right: 4px solid var(--red);
+
+      opacity: 0.9;
     }
 
 
@@ -470,212 +600,283 @@
     ========================================================= */
 
     footer {
-      background: #f1f1f1;
+      background: #ededed;
 
-      border-top: 1px solid #e4e4e4;
-
-      padding: 65px 30px 25px;
-
-      color: #555;
+      border-top: 1px solid #d2d2d2;
     }
 
-    .footer-container {
-      max-width: 1180px;
-      margin: 0 auto;
+    .footer-inner {
+      width: min(1380px, 92%);
+      margin: auto;
+
+      padding: 65px 0 35px;
 
       display: grid;
 
-      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-template-columns: 1.1fr 1.5fr 1fr;
 
       gap: 60px;
     }
 
-    .footer-logo img {
-      display: block;
-
-      max-width: 210px;
-      max-height: 70px;
-
-      width: auto;
+    .footer-brand img {
+      width: 170px;
       height: auto;
+
+      margin-bottom: 22px;
     }
 
     .footer-title {
+      position: relative;
+
       font-family: "Eurostile SST", Arial, sans-serif;
 
-      color: #222;
-
-      font-size: 13px;
-      font-weight: 400;
-
-      letter-spacing: 1px;
+      font-size: 14px;
 
       text-transform: uppercase;
 
-      margin-bottom: 16px;
+      margin-bottom: 22px;
+
+      padding-bottom: 12px;
     }
 
     .footer-title::after {
       content: "";
 
-      display: block;
+      position: absolute;
 
-      width: 30px;
-      height: 2px;
+      left: 0;
+      bottom: 0;
 
-      background: #e30613;
+      width: 38px;
+      height: 3px;
 
-      margin-top: 8px;
+      background: var(--red);
     }
 
     .footer-text {
       font-size: 13px;
+      line-height: 1.8;
 
-      line-height: 1.9;
-
-      color: #666;
+      color: #555555;
     }
 
-    .footer-text a {
-      color: #555;
+    .footer-contact a {
+      display: block;
+
+      font-size: 13px;
+
+      color: #333333;
+
+      margin-bottom: 7px;
 
       transition: color 0.2s ease;
     }
 
-    .footer-text a:hover {
-      color: #e30613;
+    .footer-contact a:hover {
+      color: var(--red);
     }
 
     .footer-bottom {
-      max-width: 1180px;
+      width: min(1380px, 92%);
+      margin: auto;
 
-      margin: 45px auto 0;
+      border-top: 1px solid #d1d1d1;
 
-      padding-top: 20px;
+      padding: 18px 0 22px;
 
-      border-top: 1px solid #d9d9d9;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
 
       font-size: 11px;
 
-      color: #999;
+      color: #888888;
     }
 
 
     /* =========================================================
-       MOBILE
+       RESPONSIVE — TABLET
     ========================================================= */
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
 
-      .header-container {
-        flex-direction: column;
-        gap: 22px;
+      header {
+        height: auto;
       }
 
-      .navigation {
+      .header-inner {
         flex-wrap: wrap;
+
+        padding: 18px 0;
+
+        gap: 15px;
+      }
+
+      nav {
+        order: 3;
+
+        width: 100%;
+
         justify-content: center;
-        gap: 20px;
+
+        gap: 28px;
+      }
+
+      nav a {
+        padding: 8px 0;
+      }
+
+      nav a::after {
+        bottom: 0;
       }
 
       .language-switch {
-        margin-left: 0;
-        padding-left: 15px;
+        margin-left: auto;
       }
 
-      .hero {
-        padding: 75px 25px 80px;
-      }
-
-      .hero h1 {
-        font-size: 43px;
-      }
-
-      .product {
+      .product-inner {
         grid-template-columns: 1fr;
       }
 
       .product-info {
-        padding: 40px 0 30px;
+        padding: 60px 0 45px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
       }
 
-      .product-documents {
-        padding: 30px;
+      .documents {
+        padding: 45px 0 60px;
       }
 
-      .footer-container {
+      .footer-inner {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
       }
     }
 
 
+    /* =========================================================
+       RESPONSIVE — MOBILE
+    ========================================================= */
+
     @media (max-width: 600px) {
 
-      .header-container {
-        padding: 18px 20px;
+      .header-inner {
+        width: 90%;
       }
 
-      .logo {
-        max-width: 210px;
+      .logo img {
+        width: 145px;
       }
 
-      .navigation {
-        gap: 13px;
+      nav {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        gap: 22px;
+
+        padding-bottom: 3px;
       }
 
-      .navigation a {
-        font-size: 10px;
+      nav a {
+        flex-shrink: 0;
+
+        font-size: 11px;
+      }
+
+      .language-switch {
+        padding-left: 12px;
       }
 
       .hero {
-        padding: 60px 20px 65px;
+        min-height: 420px;
+      }
+
+      .hero-inner {
+        width: 90%;
+        padding: 60px 0;
       }
 
       .hero h1 {
-        font-size: 34px;
+        font-size: 47px;
       }
 
       .hero-description {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .intro {
-        padding: 65px 20px 35px;
+        width: 90%;
+
+        padding: 70px 0 45px;
       }
 
-      .section-title {
-        font-size: 29px;
-      }
-
-      .products {
-        padding: 25px 20px 70px;
+      .product-inner {
+        width: 90%;
       }
 
       .product-info {
-        padding: 35px 0 25px;
+        padding: 50px 0 40px;
+      }
+
+      .product-number {
+        font-size: 55px;
       }
 
       .product-name {
-        font-size: 31px;
+        font-size: 39px;
       }
 
-      .product-documents {
-        padding: 25px 20px;
+      .documents {
+        padding: 40px 0 50px;
+      }
+
+      .document {
+        min-height: 72px;
+      }
+
+      .pdf-icon {
+        width: 38px;
+        height: 38px;
+
+        margin-right: 14px;
       }
 
       .document-name {
         font-size: 13px;
       }
 
-      footer {
-        padding: 50px 20px 25px;
+      .document-arrow {
+        width: 30px;
+        font-size: 21px;
       }
 
-      .footer-container {
+      .footer-inner {
+        width: 90%;
+
         grid-template-columns: 1fr;
-        gap: 35px;
+
+        gap: 40px;
+
+        padding: 50px 0 30px;
       }
 
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        width: 90%;
+
+        flex-direction: column;
+
+        gap: 5px;
+      }
     }
 
   </style>
@@ -685,75 +886,67 @@
 <body>
 
 
-  <!-- ========================================================
+  <!-- =======================================================
        HEADER
-  ========================================================= -->
+  ======================================================== -->
 
-  <header class="top-header">
+  <header>
 
-    <div class="header-container">
+    <div class="header-inner">
 
-      <a href="#" class="logo-link">
-
-        <img
-          src="logo-sst.png"
-          alt="SST Microwelding"
-          class="logo"
-        >
-
+      <a href="#top" class="logo">
+        <img src="logo-sst.png" alt="SST Microwelding">
       </a>
 
+      <nav>
 
-      <nav class="navigation">
-
-        <a
-          href="#documentation"
-          data-fr="Documentation"
-          data-en="Documentation"
-        >
+        <a href="#documentation"
+           data-fr="Documentation"
+           data-en="Documentation">
           Documentation
         </a>
 
-        <a
-          href="#lase-one"
-          data-fr="Lase One"
-          data-en="Lase One"
-        >
+        <a href="#lase-one"
+           data-fr="Lase One"
+           data-en="Lase One">
           Lase One
         </a>
 
-        <a href="#ws">
+        <a href="#ws"
+           data-fr="WS"
+           data-en="WS">
           WS
         </a>
 
-        <a href="#cart">
+        <a href="#cart"
+           data-fr="CART"
+           data-en="CART">
           CART
         </a>
 
-
-        <div class="language-switch">
-
-          <button
-            class="language-button active"
-            id="fr-button"
-            onclick="changeLanguage('fr')"
-          >
-            <span class="flag">🇫🇷</span>
-            FR
-          </button>
-
-          <button
-            class="language-button"
-            id="en-button"
-            onclick="changeLanguage('en')"
-          >
-            <span class="flag">🇬🇧</span>
-            EN
-          </button>
-
-        </div>
-
       </nav>
+
+
+      <div class="language-switch">
+
+        <button id="fr-button"
+                class="active"
+                onclick="changeLanguage('fr')">
+
+          <span class="flag">🇫🇷</span>
+          FR
+
+        </button>
+
+        <button id="en-button"
+                onclick="changeLanguage('en')">
+
+          <span class="flag">🇬🇧</span>
+          EN
+
+        </button>
+
+      </div>
 
     </div>
 
@@ -761,238 +954,41 @@
 
 
 
-  <!-- ========================================================
+  <!-- =======================================================
        HERO
-  ========================================================= -->
+  ======================================================== -->
 
-  <section class="hero">
+  <main id="top">
 
-    <div class="hero-container">
+    <section class="hero">
 
-      <div
-        class="hero-small-title"
-        data-fr="SST Microwelding"
-        data-en="SST Microwelding"
-      >
-        SST Microwelding
-      </div>
+      <div class="hero-inner">
 
+        <div class="hero-kicker"
+             data-fr="SST Microwelding"
+             data-en="SST Microwelding">
 
-      <h1
-        data-fr="Documentation<br><span>technique</span>"
-        data-en="Technical<br><span>documentation</span>"
-      >
-        Documentation<br>
-        <span>technique</span>
-      </h1>
+          SST Microwelding
 
-
-      <p
-        class="hero-description"
-        data-fr="Retrouvez les manuels et documents techniques de vos équipements SST Microwelding."
-        data-en="Find the manuals and technical documentation for your SST Microwelding equipment."
-      >
-        Retrouvez les manuels et documents techniques de vos équipements SST Microwelding.
-      </p>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-       INTRO
-  ========================================================= -->
-
-  <section
-    class="intro"
-    id="documentation"
-  >
-
-    <div
-      class="section-label"
-      data-fr="Nos solutions"
-      data-en="Our solutions"
-    >
-      Nos solutions
-    </div>
-
-
-    <h2
-      class="section-title"
-      data-fr="Documentation produits"
-      data-en="Product documentation"
-    >
-      Documentation produits
-    </h2>
-
-
-    <div class="section-line"></div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-       PRODUCTS
-  ========================================================= -->
-
-  <main class="products">
-
-
-    <!-- ======================================================
-         LASE ONE
-    ======================================================= -->
-
-    <section
-      class="product"
-      id="lase-one"
-    >
-
-      <div class="product-info">
-
-        <div class="product-number">
-          01
         </div>
 
 
-        <h2 class="product-name">
-          Lase One
-        </h2>
+        <h1 data-fr="Documentation<br><span>technique</span>"
+            data-en="Technical<br><span>documentation</span>">
+
+          Documentation<br>
+          <span>technique</span>
+
+        </h1>
 
 
-        <p
-          class="product-description"
-          data-fr="Assemblage fin et rechargement précis pour les opérations délicates de microsoudure."
-          data-en="Fine assembly and precise repair for demanding microwelding applications."
-        >
-          Assemblage fin et rechargement précis pour les opérations délicates de microsoudure.
+        <p class="hero-description"
+           data-fr="Retrouvez l'ensemble de la documentation technique de nos solutions de micro-soudage laser."
+           data-en="Find all the technical documentation for our laser micro-welding solutions.">
+
+          Retrouvez l'ensemble de la documentation technique de nos solutions de micro-soudage laser.
+
         </p>
-
-      </div>
-
-
-      <div class="product-documents">
-
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
-          Documents disponibles
-        </div>
-
-
-        <a
-          href="Lase-One-fr.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇫🇷 Français
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Manuel technique
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-
-        <a
-          href="Lase-One-en.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇬🇧 English
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Technical manual
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-
-        <a
-          href="Lase-One-it.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇮🇹 Italiano
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Manuel technique"
-                data-en="Technical manual"
-              >
-                Manuale tecnico
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
 
       </div>
 
@@ -1000,356 +996,493 @@
 
 
 
-    <!-- ======================================================
-         WS
-    ======================================================= -->
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
 
-    <section
-      class="product"
-      id="ws"
-    >
+    <section class="intro" id="documentation">
 
-      <div class="product-info">
+      <div class="section-label"
+           data-fr="Nos solutions"
+           data-en="Our solutions">
 
-        <div class="product-number">
-          02
-        </div>
-
-
-        <h2 class="product-name">
-          WS
-        </h2>
-
-
-        <p
-          class="product-description"
-          data-fr="Postes de soudage dédiés à la réparation des outillages par rechargement."
-          data-en="Welding systems dedicated to tooling repair and precision build-up."
-        >
-          Postes de soudage dédiés à la réparation des outillages par rechargement.
-        </p>
+        Nos solutions
 
       </div>
 
 
-      <div class="product-documents">
+      <h2 data-fr="Documentation produits"
+          data-en="Product documentation">
 
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
-          Documents disponibles
-        </div>
+        Documentation produits
+
+      </h2>
 
 
-        <a
-          href="WS-fr-en.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇫🇷 🇬🇧 Français / English
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Documentation bilingue"
-                data-en="Bilingual documentation"
-              >
-                Documentation bilingue
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-
-        <a
-          href="WS-technique-fr.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇫🇷 Technique
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Documentation technique"
-                data-en="Technical documentation"
-              >
-                Documentation technique
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-
-        <a
-          href="WS-technocal-en.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                🇬🇧 Technical
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Documentation technique"
-                data-en="Technical documentation"
-              >
-                Technical documentation
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-
-        <a
-          href="Reset%20WS.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                Reset WS
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Procédure de réinitialisation"
-                data-en="Reset procedure"
-              >
-                Procédure de réinitialisation
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-      </div>
+      <div class="intro-line"></div>
 
     </section>
 
 
 
-    <!-- ======================================================
-         CART
-    ======================================================= -->
+    <!-- =====================================================
+         PRODUCTS
+    ====================================================== -->
 
-    <section
-      class="product"
-      id="cart"
-    >
+    <section class="products">
 
-      <div class="product-info">
 
-        <div class="product-number">
-          03
+      <!-- ===================================================
+           LASE ONE
+      ==================================================== -->
+
+      <article class="product" id="lase-one">
+
+        <div class="product-corner"></div>
+
+        <div class="product-inner">
+
+
+          <div class="product-info">
+
+            <div class="product-number">
+              01
+            </div>
+
+            <h2 class="product-name">
+              Lase One
+            </h2>
+
+            <p class="product-description"
+               data-fr="Système de micro-soudage laser compact et performant pour les applications de précision."
+               data-en="Compact and high-performance laser micro-welding system for precision applications.">
+
+              Système de micro-soudage laser compact et performant pour les applications de précision.
+
+            </p>
+
+            <div class="product-marker"></div>
+
+          </div>
+
+
+
+          <div class="documents">
+
+            <div class="documents-title"
+                 data-fr="Documents techniques"
+                 data-en="Technical documents">
+
+              Documents techniques
+
+            </div>
+
+
+            <div class="document-list">
+
+
+              <a class="document"
+                 href="Lase-One-fr.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  Lase One — Documentation française
+
+                  <span class="document-format">
+                    Français
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="Lase-One-en.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  Lase One — English documentation
+
+                  <span class="document-format">
+                    English
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="Lase-One-it.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  Lase One — Documentazione italiana
+
+                  <span class="document-format">
+                    Italiano
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
         </div>
 
-
-        <h2 class="product-name">
-          CART
-        </h2>
+      </article>
 
 
-        <p
-          class="product-description"
-          data-fr="Chariot électrique conçu pour accompagner les équipements de microsoudure SST."
-          data-en="Electric trolley designed to support SST microwelding equipment."
-        >
-          Chariot électrique conçu pour accompagner les équipements de microsoudure SST.
-        </p>
 
-      </div>
+      <!-- ===================================================
+           WS
+      ==================================================== -->
+
+      <article class="product" id="ws">
+
+        <div class="product-corner"></div>
+
+        <div class="product-inner">
 
 
-      <div class="product-documents">
+          <div class="product-info">
 
-        <div
-          class="documents-title"
-          data-fr="Documents disponibles"
-          data-en="Available documents"
-        >
-          Documents disponibles
+            <div class="product-number">
+              02
+            </div>
+
+            <h2 class="product-name">
+              WS
+            </h2>
+
+            <p class="product-description"
+               data-fr="Documentation technique dédiée aux solutions WS et à leur utilisation."
+               data-en="Technical documentation dedicated to WS solutions and their operation.">
+
+              Documentation technique dédiée aux solutions WS et à leur utilisation.
+
+            </p>
+
+            <div class="product-marker"></div>
+
+          </div>
+
+
+
+          <div class="documents">
+
+            <div class="documents-title"
+                 data-fr="Documents techniques"
+                 data-en="Technical documents">
+
+              Documents techniques
+
+            </div>
+
+
+            <div class="document-list">
+
+
+              <a class="document"
+                 href="WS-fr-en.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  WS — Documentation FR / EN
+
+                  <span class="document-format">
+                    Français / English
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="WS-technique-fr.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  WS — Documentation technique française
+
+                  <span class="document-format">
+                    Français
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="WS-technocal-en.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  WS — Technical documentation
+
+                  <span class="document-format">
+                    English
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="Reset%20WS.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  WS — Reset
+
+                  <span class="document-format">
+                    Technical document
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
         </div>
 
+      </article>
 
-        <a
-          href="Cart-fr-en.pdf"
-          target="_blank"
-          class="document"
-        >
 
-          <div class="document-left">
 
-            <div class="pdf">
-              PDF
+      <!-- ===================================================
+           CART
+      ==================================================== -->
+
+      <article class="product" id="cart">
+
+        <div class="product-corner"></div>
+
+        <div class="product-inner">
+
+
+          <div class="product-info">
+
+            <div class="product-number">
+              03
             </div>
 
-            <div>
+            <h2 class="product-name">
+              CART
+            </h2>
 
-              <div class="document-name">
-                🇫🇷 🇬🇧 Français / English
-              </div>
+            <p class="product-description"
+               data-fr="Documentation et informations techniques relatives à la solution CART."
+               data-en="Documentation and technical information for the CART solution.">
 
-              <div
-                class="document-subtitle"
-                data-fr="Documentation bilingue"
-                data-en="Bilingual documentation"
-              >
-                Documentation bilingue
-              </div>
+              Documentation et informations techniques relatives à la solution CART.
+
+            </p>
+
+            <div class="product-marker"></div>
+
+          </div>
+
+
+
+          <div class="documents">
+
+            <div class="documents-title"
+                 data-fr="Documents techniques"
+                 data-en="Technical documents">
+
+              Documents techniques
+
+            </div>
+
+
+            <div class="document-list">
+
+
+              <a class="document"
+                 href="Cart-fr-en.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  CART — Documentation FR / EN
+
+                  <span class="document-format">
+                    Français / English
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
+
+
+              <a class="document"
+                 href="CART-DB.pdf"
+                 target="_blank">
+
+                <div class="pdf-icon">
+                  PDF
+                </div>
+
+                <div class="document-name">
+
+                  CART — Documentation technique
+
+                  <span class="document-format">
+                    Technical document
+                  </span>
+
+                </div>
+
+                <div class="document-arrow">
+                  →
+                </div>
+
+              </a>
+
 
             </div>
 
           </div>
 
-          <div class="document-arrow">
-            →
-          </div>
+        </div>
 
-        </a>
+      </article>
 
-
-        <a
-          href="CART-DB.pdf"
-          target="_blank"
-          class="document"
-        >
-
-          <div class="document-left">
-
-            <div class="pdf">
-              PDF
-            </div>
-
-            <div>
-
-              <div class="document-name">
-                CART — Documentation
-              </div>
-
-              <div
-                class="document-subtitle"
-                data-fr="Document technique"
-                data-en="Technical document"
-              >
-                Document technique
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="document-arrow">
-            →
-          </div>
-
-        </a>
-
-      </div>
 
     </section>
-
 
   </main>
 
 
 
-  <!-- ========================================================
+  <!-- =======================================================
        FOOTER
-  ========================================================= -->
+  ======================================================== -->
 
   <footer>
 
-    <div class="footer-container">
+    <div class="footer-inner">
 
 
-      <div class="footer-logo">
+      <div class="footer-brand">
 
-        <img
-          src="logo-sst.png"
-          alt="SST Microwelding"
-        >
+        <img src="logo-sst.png"
+             alt="SST Microwelding">
+
+        <div class="footer-text">
+
+          <span data-fr="Micro-soudage laser de précision"
+                data-en="Precision laser micro-welding">
+
+            Micro-soudage laser de précision
+
+          </span>
+
+        </div>
 
       </div>
 
 
+
       <div>
 
-        <div
-          class="footer-title"
-          data-fr="SST Microwelding"
-          data-en="SST Microwelding"
-        >
-          SST Microwelding
-        </div>
+        <div class="footer-title"
+             data-fr="SST Microwelding"
+             data-en="SST Microwelding">
 
+          SST Microwelding
+
+        </div>
 
         <div class="footer-text">
 
@@ -1362,29 +1495,28 @@
       </div>
 
 
-      <div>
 
-        <div
-          class="footer-title"
-          data-fr="Contact"
-          data-en="Contact"
-        >
+      <div class="footer-contact">
+
+        <div class="footer-title"
+             data-fr="Contact"
+             data-en="Contact">
+
           Contact
+
         </div>
 
 
-        <div class="footer-text">
+        <a href="mailto:info@sstmicrowelding.com">
+          info@sstmicrowelding.com
+        </a>
 
-          <a href="mailto:info@sstmicrowelding.com">
-            info@sstmicrowelding.com
-          </a>
-          <br>
-
+        <a href="tel:+33556295160">
           +33 (0)5 56 29 51 60
-          <br>
+        </a>
 
+        <div class="footer-text">
           Fax +33 (0)5 56 29 51 69
-
         </div>
 
       </div>
@@ -1393,21 +1525,28 @@
     </div>
 
 
-    <div
-      class="footer-bottom"
-      data-fr="© SST Microwelding — Documentation technique"
-      data-en="© SST Microwelding — Technical documentation"
-    >
-      © SST Microwelding — Documentation technique
+    <div class="footer-bottom">
+
+      <div data-fr="© SST Microwelding — Tous droits réservés"
+           data-en="© SST Microwelding — All rights reserved">
+
+        © SST Microwelding — Tous droits réservés
+
+      </div>
+
+      <div>
+        Bordeaux — France
+      </div>
+
     </div>
 
   </footer>
 
 
 
-  <!-- ========================================================
+  <!-- =======================================================
        LANGUAGE SCRIPT
-  ========================================================= -->
+  ======================================================== -->
 
   <script>
 
@@ -1415,7 +1554,6 @@
 
       const elements =
         document.querySelectorAll("[data-fr][data-en]");
-
 
       elements.forEach(function(element) {
 
@@ -1425,26 +1563,19 @@
       });
 
 
-      document.documentElement.lang =
-        language;
+      document.documentElement.lang = language;
 
 
       document
         .getElementById("fr-button")
         .classList
-        .toggle(
-          "active",
-          language === "fr"
-        );
+        .toggle("active", language === "fr");
 
 
       document
         .getElementById("en-button")
         .classList
-        .toggle(
-          "active",
-          language === "en"
-        );
+        .toggle("active", language === "en");
 
 
       localStorage.setItem(
